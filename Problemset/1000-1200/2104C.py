@@ -1,3 +1,6 @@
+# https://codeforces.com/problemset/problem/2104/C
+# 1100
+
 def beats(n, x, y):
     if x == 0:
         return y == n - 1

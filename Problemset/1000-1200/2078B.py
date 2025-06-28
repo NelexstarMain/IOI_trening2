@@ -1,3 +1,6 @@
+# https://codeforces.com/problemset/problem/2078/B
+# 1100
+
 def solve():
     n, k = map(int, input().split(" "))
 
@@ -10,7 +13,6 @@ def solve():
         else:
             for _ in range(n-2): r.append(n)
 
-    #n-1
     r.append(n)
     r.append(n-1)
 
