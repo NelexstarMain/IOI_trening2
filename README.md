@@ -1,30 +1,87 @@
-# NelexstarMain/IOI_trening
+Oto rozszerzona wersja Twojego pliku `README.md` dla repozytorium `NelexstarMain/IOI_trening`, zawierająca więcej szczegółów, opis struktury katalogów i dodatkowe sekcje:
 
 ---
 
-This repository, `NelexstarMain/IOI_trening`, serves as a dedicated collection of solutions to competitive programming problems primarily sourced from **Codeforces**.
-
-The main purpose of this repository is to store and organize my practice submissions and accepted solutions, with a focus on improving algorithmic skills relevant to contests like the International Olympiad of Informatics (IOI) and similar competitive programming events.
-
-## What you'll find here:
-
-* **Problem Solutions:** Solutions to various Codeforces problems, typically organized by problem ID or contest.
-* **Algorithmic Focus:** The problems tackled cover a wide range of algorithms and data structures, including (but not limited to):
-    * Dynamic Programming
-    * Graph Algorithms (DFS, BFS, Dijkstra, etc.)
-    * Data Structures (Trees, Fenwick trees, Segment trees)
-    * Greedy Algorithms
-    * Binary Search
-    * Number Theory
-    * String Algorithms
-* **Code in Python:** All solutions are primarily implemented in **Python**.
-
-## How to use this repository:
-
-You can browse through the directories to find solutions to specific problems. Each problem solution is generally contained within its own file, often named after the problem ID or a descriptive title.
-
-Feel free to explore the code, learn from the approaches, or compare solutions if you're working on similar problems.
+# NelexstarMain/IOI\_trening
 
 ---
 
-**Note:** This repository is a personal training ground. While the solutions provided are generally accepted on Codeforces, they might not always represent the most optimal or elegant approach. They reflect my current understanding and problem-solving journey.
+To repozytorium zawiera zbiór rozwiązań zadań z programowania konkurencyjnego (competitive programming), głównie pochodzących z platform **Codeforces** oraz **CSES**.
+
+Głównym celem jest systematyczne rozwijanie umiejętności algorytmicznych przydatnych w zawodach takich jak **Międzynarodowa Olimpiada Informatyczna (IOI)**, a także w innych konkursach.
+
+---
+
+## 🧭 Roadmap: Jak uczyć się algorytmów?
+
+Nauka algorytmów może być trudna, dlatego przygotowałem uproszczoną mapę koncepcyjną (graf zależności), która pokazuje, od czego warto zacząć i w jakiej kolejności rozwijać wiedzę.
+
+![Algorithm Learning Path](Resources/Theory/algorithm_learning_path.png)
+
+Znajdziesz ją w folderze:
+
+```
+Resources/
+└── Theory/
+    └── algorithm_learning_path.png
+```
+
+---
+
+## 📁 Struktura folderów
+
+Poniżej znajduje się ogólny przegląd struktury repozytorium:
+
+```
+IOI_trening/
+├── Codeforces/
+│   ├── A/
+│   │   └── 1234A_sum_of_round_numbers.py
+│   ├── B/
+│   │   └── 1709B_Three_Sequences.py
+│   └── D/
+│       └── ...
+├── CSES/
+│   ├── SortingAndSearching/
+│   │   └── DistinctNumbers.py
+│   ├── GraphAlgorithms/
+│   │   └── ShortestRoutesI.py
+│   └── ...
+├── Resources/
+│   └── Theory/
+│       ├── algorithm_learning_path.png
+│       ├── time_complexity_cheatsheet.pdf
+│       └── notes.md
+├── Templates/
+│   ├── fast_io.py
+│   ├── dsu_template.py
+│   └── segment_tree.py
+├── README.md
+└── .gitignore
+```
+
+**Opis katalogów:**
+
+* `Codeforces/` – rozwiązania zadań z Codeforces, posortowane wg. poziomu trudności (`A/`, `B/`, `C/`, `D/`...).
+* `CSES/` – rozwiązania z CSES Problem Set, pogrupowane wg. działów (np. `GraphAlgorithms`, `DynamicProgramming`).
+* `Resources/Theory/` – materiały pomocnicze, m.in. grafy, wykresy, notatki teoretyczne.
+* `Templates/` – gotowe szablony kodu (np. do szybkiego I/O, Union-Find, drzewa przedziałowe).
+
+---
+
+## 🧠 Jak korzystać z tego repozytorium?
+
+* Przeglądaj foldery, aby znaleźć interesujące Cię zadania.
+* Każdy plik zawiera samodzielne rozwiązanie – z nazwą odpowiadającą ID zadania lub jego tytułowi.
+* Jeśli uczysz się danego tematu (np. BFS, DP, drzewa binarne), możesz łatwo odnaleźć przykłady w odpowiednich katalogach.
+
+---
+
+## ⚠️ Uwaga
+
+To repozytorium jest moim osobistym miejscem do treningu. Choć większość rozwiązań została zaakceptowana na platformach takich jak Codeforces czy CSES, niekoniecznie są to rozwiązania optymalne lub najbardziej eleganckie. Stanowią zapis mojego procesu nauki i eksploracji algorytmiki.
+
+
+
+**Autor:** Nelek
+**Repozytorium:** [NelexstarMain/IOI\_trening](https://github.com/NelexstarMain/IOI_trening)
