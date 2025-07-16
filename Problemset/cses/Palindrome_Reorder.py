@@ -1,6 +1,28 @@
 from collections import Counter
 
 a = input()
+v = Counter(a)
+
+mid = ""
+half = []
+
+for ch, cnt in v.items():
+    if cnt % 2 == 1:
+        if mid:
+            print("NO SOLUTION")
+            break
+        mid = ch * cnt
+    half.extend([ch] * (cnt // 2))
+else:
+    print("".join(half + list(mid) + half[::-1]))
+
+
+
+"""Old version
+
+from collections import Counter
+
+a = input()
 
 v = Counter(a)
 el = []
@@ -27,3 +49,4 @@ else:
         print("".join(r_1 + el + r_2))
     else:
         print("".join(r_1 + r_2))
+"""
