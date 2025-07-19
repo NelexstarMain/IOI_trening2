@@ -20,20 +20,25 @@ class LinkedList {
 private:
     Node* head;
     Node* tail;
-    int lenght;
+    int length;
 
 public:
     LinkedList(int value) {
         head = new Node(value);
         tail = head;  
-        lenght = 1;
+        length = 1;
     }
 
     void append(int value) {
         Node* nextNode = new Node(value);
-        tail->setnext(nextNode);  
-        tail = nextNode;          
-        lenght++;
+        if (length != 0) {
+            tail->setnext(nextNode);  
+            tail = nextNode;          
+            length++;
+        } else {
+            head = nextNode;
+            tail = nextNode;
+        }
     }
 
     void printList() {
@@ -65,7 +70,6 @@ int main() {
 
     cout << "My linked list: ";
     mylist->printList();
-
 
     delete mylist; 
 
