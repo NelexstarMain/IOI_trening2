@@ -1,8 +1,8 @@
-Oto rozszerzona wersja Twojego pliku `README.md` dla repozytorium `NelexstarMain/IOI_trening`, zawierająca więcej szczegółów, opis struktury katalogów i dodatkowe sekcje:
 
 ---
 
 # NelexstarMain/IOI\_trening
+
 
 ---
 
