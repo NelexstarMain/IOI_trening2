@@ -2,14 +2,13 @@
 #include <cmath>
 #include <vector>
 
-bool is_prime(int n) {
+bool is_prime(long long n) {
     if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i) {
+    for (long long i = 2; i * i <= n; ++i) {
         if (n % i == 0) return false;
     }
     return true;
 }
-
 
 int main() {
     std::ios_base::sync_with_stdio(0);
@@ -18,19 +17,17 @@ int main() {
     int n;
     std::cin >> n;
 
-    std::vector<int> arr(n);
-    for (int& x: arr) std::cin >> x;
+    std::vector<long long> arr(n);
+    for (long long& x: arr) std::cin >> x;
 
-    for (int x: arr) {
-        int num = floor(sqrt(x));
-        if (x != num*num) {
+    for (long long x: arr) {
+        long long num = std::sqrt(x);
+        if (num * num != x) {
             std::cout << "NO\n";
         } else if (is_prime(num)) {
             std::cout << "YES\n";
         } else {
             std::cout << "NO\n";
         }
-
-
     }   
 }
