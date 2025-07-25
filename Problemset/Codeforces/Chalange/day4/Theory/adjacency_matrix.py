@@ -16,3 +16,4 @@ class Grafs:
             neighbors = ', '.join(str(x) for x in range(len(self.adj[i])) if self.adj[i][x] == 1)
             lines.append(f"[{str(i).rjust(width)}] → {neighbors if neighbors else '∅'}")
         return '\n'.join(lines)
+
