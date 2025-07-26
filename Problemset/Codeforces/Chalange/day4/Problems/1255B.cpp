@@ -23,15 +23,13 @@ int main() {
         std::vector<std::vector<int>> res;
         long long price = 0;
 
-        // Tworzymy cykl
         for (int i = 0; i < n; ++i) {
             int a = i;
             int b = (i + 1) % n;
-            res.push_back({a + 1, b + 1});  // 1-indeksowo
+            res.push_back({a + 1, b + 1});  
             price += arr[a] + arr[b];
         }
 
-        // Dodatkowe krawędzie, jeśli m > n
         if (m > n) {
             int extra = m - n;
 
