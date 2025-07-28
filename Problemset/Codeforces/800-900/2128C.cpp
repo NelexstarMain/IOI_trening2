@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 bool solve() {
     int N; cin >> N;
     vector<int> B(N);
@@ -12,7 +12,7 @@ bool solve() {
     }
     return true;
 }
- 
+
 int main() {
     ios::sync_with_stdio(false), cin.tie(0);
     int T; cin >> T;
@@ -21,4 +21,18 @@ int main() {
     }
 }
 
- 
+easy
+329B
+1176E
+1037D
+35C (multi-source)
+
+medium level
+1651D
+1613E
+173B
+
+and some hard ones...
+542E
+29E
+1407E
