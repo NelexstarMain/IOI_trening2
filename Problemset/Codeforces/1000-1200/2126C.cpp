@@ -12,7 +12,7 @@ int main() {
         std::vector<int> b = arr;
         std::sort(b.begin(), b.end());
 
-        int d = arr[m - 1] - 1;
+        int d = arr[m - 1];
 
         int idx = std::find(arr.rbegin(), arr.rend(), arr[m - 1]) - arr.rbegin();
         idx = arr.size() - 1 - idx;
@@ -25,7 +25,8 @@ int main() {
             if (b[i] - b[sorted_idx] > d) {
                 ok = false;
                 break;
-            }
+            } 
+            sorted_idx = i;
         }
 
         std::cout << (ok ? "YES\n" : "NO\n");
