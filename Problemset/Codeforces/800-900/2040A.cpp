@@ -25,6 +25,10 @@ void solve() {
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(0);
+    std::cin.tie(nullptr);
+
+    
     int T; std::cin >> T;
     while (T--) solve();
 }

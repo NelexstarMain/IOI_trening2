@@ -23,14 +23,18 @@
 - `2040A` – *Codeforces*  
   - Level: 800  
   - Time: ...  
-  - Status: ...  
+  - Status: ✅  
+    - ⏱ Time: 46 ms  
+    - 🧠 Memory: 0 KB
   - Notes: Warm-up  
 
 - `1941B` – *Codeforces*  
   - Level: 1000  
   - Time: ...  
-  - Status: ...  
-  - Notes: DP basics  
+  - Status: ✅
+    - ⏱ Time: 77 ms  
+    - 🧠 Memory: 0 KB  
+  - Notes: DP basics, problems with understanding.  
 
 - `2107C` – *Codeforces*  
   - Level: 1500  
