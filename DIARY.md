@@ -39,7 +39,9 @@
 - `2107C` – *Codeforces*  
   - Level: 1500  
   - Time: ...  
-  - Status: ...  
+  - Status: ✅ (With some troubles)
+    - ⏱ Time: 374 ms  
+    - 🧠 Memory: 100 KB  
   - Notes: Hard one  
 
 - `2116B` – *Codeforces*  
