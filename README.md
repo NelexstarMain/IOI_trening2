@@ -30,3 +30,5 @@
 
 This repository was created by **[NelexstarMain](https://github.com/NelexstarMain)** as a tool for consistent training before algorithmic competitions – especially the OI and IOI.  
 Check out the Codeforces profile: **[Kornel_Bartlewski](https://codeforces.com/profile/Kornel_Bartlewski)**
+
+## 
