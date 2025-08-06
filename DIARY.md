@@ -47,13 +47,17 @@
 - `2116B` – *Codeforces*  
   - Level: 1300  
   - Time: ...  
-  - Status: ...  
+  - Status: ✅
+    - ⏱ Time: 93 ms  
+    - 🧠 Memory: 800 KB  
   - Notes: Some math  
 
 - `2061A` – *Codeforces*  
   - Level: 1100  
   - Time: ...  
-  - Status: ...  
+  - Status: ✅
+    - ⏱ Time: 78 ms  
+    - 🧠 Memory: 0 KB 
   - Notes: Geometry  
 
 ---
