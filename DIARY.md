@@ -13,8 +13,8 @@
 
 ### 🎯 Goals
 
-- [ ] Solve 5 problems  
-- [ ] Practice dynamic programming  
+- [x] Solve 5 problems  
+- [-] Practice dynamic programming  
 
 ---
 
@@ -58,6 +58,63 @@
   - Status: ✅
     - ⏱ Time: 78 ms  
     - 🧠 Memory: 0 KB 
+  - Notes: Geometry  
+
+---
+## 📅 2025-08-05 (Thuasday)
+
+> "Failure is simply the opportunity to begin again, this time more intelligently."
+> — **Henry Ford**
+
+
+---
+
+### 🎯 Goals
+
+- [ ] Solve 5 problems  
+
+---
+
+### 🧩 Problems
+
+- `2093B` – *Codeforces*  
+  - Level: 900  
+  - Time: ...  
+  - Status: ...  
+    - ⏱ Time: ... ms  
+    - 🧠 Memory: ... KB
+  - Notes: Warm-up  
+
+- `2124B` – *Codeforces*  
+  - Level: 1000  
+  - Time: ...  
+  - Status: ...
+    - ⏱ Time: ... ms  
+    - 🧠 Memory: ... KB  
+  - Notes: ...  
+
+- `2094F` – *Codeforces*  
+  - Level: 1600  
+  - Time: ...  
+  - Status: ...
+    - ⏱ Time: ... ms  
+    - 🧠 Memory: ... KB  
+  - Notes: Hard one  
+
+- `2117C` – *Codeforces*  
+  - Level: 1200 
+  - Time: ...  
+  - Status: ...
+    - ⏱ Time: ... ms  
+    - 🧠 Memory: ... KB  
+  - Notes: greede.  
+
+- `2085A` – *Codeforces*  
+  - Level: 900  
+  - Time: ...  
+  - Status: ...
+    - ⏱ Time: ... ms  
+    - 🧠 Memory: ... KB 
   - Notes: Geometry  
 
 ---
