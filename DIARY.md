@@ -106,9 +106,9 @@
   - Level: 1200 
   - Time: ...  
   - Status: ✅
-    - ⏱ Time: ... ms  
-    - 🧠 Memory: ... KB  
-  - Notes: greede.  
+    - ⏱ Time: 156 ms  
+    - 🧠 Memory: 9800 KB  
+  - Notes:  
 
 - `2085A` – *Codeforces*  
   - Level: 900  
@@ -116,7 +116,7 @@
   - Status: ...
     - ⏱ Time: ... ms  
     - 🧠 Memory: ... KB 
-  - Notes: Geometry  
+  - Notes:  
 
 ---
 
