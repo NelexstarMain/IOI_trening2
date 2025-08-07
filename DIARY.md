@@ -14,7 +14,7 @@
 ### 🎯 Goals
 
 - [x] Solve 5 problems  
-- [-] Practice dynamic programming  
+- [ ] Practice dynamic programming  
 
 ---
 
@@ -61,7 +61,8 @@
   - Notes: Geometry  
 
 ---
-## 📅 2025-08-05 (Thuasday)
+
+## 📅 2025-08-06 (Thursday)
 
 > "Failure is simply the opportunity to begin again, this time more intelligently."
 > — **Henry Ford**
@@ -71,7 +72,7 @@
 
 ### 🎯 Goals
 
-- [ ] Solve 5 problems  
+  - [ ] Solve 5 problems  
 
 ---
 
@@ -80,9 +81,9 @@
 - `2093B` – *Codeforces*  
   - Level: 900  
   - Time: ...  
-  - Status: ...  
-    - ⏱ Time: ... ms  
-    - 🧠 Memory: ... KB
+  - Status: ✅  
+    - ⏱ Time: 46 ms  
+    - 🧠 Memory: 0 KB
   - Notes: Warm-up  
 
 - `2124B` – *Codeforces*  
