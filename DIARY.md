@@ -79,14 +79,15 @@
 
 ### 🧩 Problems to Solve
 
-|  # | ID    | Level |  Time | Memory | Status | Notes                      |
-| -: | ----- | :---: | :---: | :----: | :----: | -------------------------- |
-|  1 | 2092A |  800  | 61 ms |  0 KB  |    ✅   | Implementation, sorting    |
-|  2 | 2106A |  800  | 46 ms |  0 KB  |    ✅   | Brute force, math          |
-|  3 | 2092B |  1000 |   –   |    –   |    ⬜   | Construction, math         |
-|  4 | 2109A |  1200 |   –   |    –   |    ⬜   | Implementation             |
-|  5 | 2117C |  1200 |   –   |    –   |    ⬜   | Sorting, implementation    |
-|  6 | 2091E |  1300 |   –   |    –   |    ⬜   | Brute force, number theory |
+|  # | ID     | Level |  Time | Memory | Status | Notes                      |
+| -: | ------ | :---: | :---: | :----: | :----: | -------------------------- |
+|  1 | 2092A  |  800  |  61 ms|   0 KB |   ✅   | Implementation, sorting    |
+|  2 | 2106A  |  800  |  46 ms|   0 KB |   ✅   | Brute force, math          |
+|  3 | 2092B  | 1000  |   –   |    –   |   ⬜   | Construction, math         |
+|  4 | 2109A  | 1200  |   –   |    –   |   ⬜   | Implementation             |
+|  5 | 2117C  | 1200  |   –   |    –   |   ⬜   | Sorting, implementation    |
+|  6 | 2091E  | 1300  |   –   |    –   |   ⬜   | Brute force, number theory |
+|  7 | 2124D  | 1300  | 108 ms| 100 KB |   ✅   |                            |
 
 ---
 
