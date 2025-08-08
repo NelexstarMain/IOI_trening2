@@ -1,8 +1,22 @@
+
 # 📘 Algorithm Training Journal
 
 > Track your daily progress, goals, solved problems, mistakes, and insights.
 
----
+## 🧭 Legend – Problem Status
+
+| Symbol | Meaning                                           |
+|--------|---------------------------------------------------|
+| ✅     | Solved independently                              |
+| 💡     | Solved with help (e.g. editorial, hints)          |
+| ❌     | Attempted but failed                              |
+| 🟡     | Partial solution / needs more work                |
+| 🔁     | Revisited / solved again                          |
+| ✍️     | Worth taking notes or writing about               |
+| 🧠     | Interesting trick / clever idea involved          |
+
+> You can combine symbols, e.g. `💡🧠` means "solved with help and it had a clever trick".
+
 
 ## 📅 2025-08-05 (Monday)
 
@@ -23,12 +37,12 @@
 ### 🧩 Solved Problems
 
 |  # | ID    | Level | Time   | Memory | Status | Notes                        |
-| -: | ----- | ----- | ------ | ------ | ------ | ---------------------------- |
-|  1 | 2040A | 800   | ...    | ...    | ✅      | Warm-up                      |
-|  2 | 1941B | 1000  | 77 ms  | 0 KB   | ✅      | DP basics, understanding     |
-|  3 | 2107C | 1500  | 374 ms | 100 KB | ✅      | Hard one, with some troubles |
-|  4 | 2116B | 1300  | 93 ms  | 800 KB | ✅      | Some math                    |
-|  5 | 2061A | 1100  | 78 ms  | 0 KB   | ✅      | Geometry                     |
+| -: | ----- | :---: | ------ | ------ | ------ | ---------------------------- |
+|  1 | 2040A |  800  | —      | —      | ✅      | Warm-up                      |
+|  2 | 1941B |  1000 | 77 ms  | 0 KB   | ✅      | DP basics, understanding     |
+|  3 | 2107C |  1500 | 374 ms | 100 KB | ✅      | Hard one, with some troubles |
+|  4 | 2116B |  1300 | 93 ms  | 800 KB | ✅      | Some math                    |
+|  5 | 2061A |  1100 | 78 ms  | 0 KB   | ✅      | Geometry                     |
 
 ---
 
@@ -50,12 +64,12 @@
 ### 🧩 Solved Problems
 
 |  # | ID    | Level | Time   | Memory  | Status | Notes    |
-| -: | ----- | ----- | ------ | ------- | ------ | -------- |
-|  1 | 2093B | 900   | 46 ms  | 0 KB    | ✅      | Warm-up  |
-|  2 | 2124B | 1000  | ...    | ...     | ✅      | ...      |
-|  3 | 2094F | 1600  | 61 ms  | 0 KB    | ✅      | Hard one |
-|  4 | 2117C | 1200  | 156 ms | 9800 KB | ✅      | —        |
-|  5 | 2085A | 900   | 62 ms  | 100 KB  | ✅      | —        |
+| -: | ----- | :---: | ------ | ------- | ------ | -------- |
+|  1 | 2093B |  900  | 46 ms  | 0 KB    | ✅      | Warm-up  |
+|  2 | 2124B |  1000 | —      | —       | ✅      | —        |
+|  3 | 2094F |  1600 | 61 ms  | 0 KB    | ✅      | Hard one |
+|  4 | 2117C |  1200 | 156 ms | 9800 KB | ✅      | —        |
+|  5 | 2085A |  900  | 62 ms  | 100 KB  | ✅      | —        |
 
 ---
 
@@ -77,25 +91,28 @@
 
 ### 🧩 Problems to Solve
 
-|  # | ID     | Level |  Time | Memory | Status | Notes                      |
-| -: | ------ | :---: | :---: | :----: | :----: | -------------------------- |
-|  1 | 2092A  |  800  |  61 ms|   0 KB |   ✅   | Implementation, sorting    |
-|  2 | 2106A  |  800  |  46 ms|   0 KB |   ✅   | Brute force, math          |
-|  3 | 2092B  | 1000  |   –   |    –   |   ⬜   | Construction, math         |
-|  4 | 2109A  | 1200  |   –   |    –   |   ⬜   | Implementation             |
-|  5 | 2117C  | 1200  |   –   |    –   |   ⬜   | Sorting, implementation    |
-|  6 | 2091E  | 1300  |   –   |    –   |   ⬜   | Brute force, number theory |
-|  7 | 2124D  | 1700  | 108 ms| 100 KB |   ✅   |                            |
+|  # | ID    | Level |   Time | Memory | Status | Notes                      |
+| -: | ----- | :---: | -----: | -----: | :----: | -------------------------- |
+|  1 | 2092A |  800  |  61 ms |   0 KB |    ✅   | Implementation, sorting    |
+|  2 | 2106A |  800  |  46 ms |   0 KB |    ✅   | Brute force, math          |
+|  3 | 2092B |  1000 |      — |      — |    ⬜   | Construction, math         |
+|  4 | 2109A |  1200 |      — |      — |    ⬜   | Implementation             |
+|  5 | 2117C |  1200 |      — |      — |    ⬜   | Sorting, implementation    |
+|  6 | 2091E |  1300 | 125 ms |   0 KB |    ✅   | Brute force, number theory |
+|  7 | 2124D |  1700 | 108 ms | 100 KB |    ✅   | —                          |
 
 ---
 
 ### 🧠 Reflections
 
-| Insight / Mistake / Thought |
-| --------------------------- |
-| *Place for notes*           |
+| Insight / Mistake / Thought                        |
+| -------------------------------------------------- |
+| Need to review construction problems (e.g., 2092B) |
+| Start using snippets more consistently             |
+| Brute force can still be optimal if n is small     |
 
 ---
 
 ✍️ *Keep pushing your limits and never stop solving!*
 
+---
