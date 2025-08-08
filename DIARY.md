@@ -1,6 +1,4 @@
----
-
-## 📘 Algorithm Training Journal
+# 📘 Algorithm Training Journal
 
 > Track your daily progress, goals, solved problems, mistakes, and insights.
 
@@ -87,7 +85,7 @@
 |  4 | 2109A  | 1200  |   –   |    –   |   ⬜   | Implementation             |
 |  5 | 2117C  | 1200  |   –   |    –   |   ⬜   | Sorting, implementation    |
 |  6 | 2091E  | 1300  |   –   |    –   |   ⬜   | Brute force, number theory |
-|  7 | 2124D  | 1300  | 108 ms| 100 KB |   ✅   |                            |
+|  7 | 2124D  | 1700  | 108 ms| 100 KB |   ✅   |                            |
 
 ---
 
@@ -101,4 +99,3 @@
 
 ✍️ *Keep pushing your limits and never stop solving!*
 
----
