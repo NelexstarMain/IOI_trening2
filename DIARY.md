@@ -85,7 +85,7 @@
 | ✔️ | Task                    |
 | -- | ----------------------- |
 | ⬜  | Solve 6 easier problems |
-| ⬜  | Get used to the snippet |
+| ✅  | Get used to the snippet |
 
 ---
 
@@ -95,13 +95,45 @@
 | -: | ----- | :---: | -----: | -----: | :----: | -------------------------- |
 |  1 | 2092A |  800  |  61 ms |   0 KB |    ✅   | Implementation, sorting    |
 |  2 | 2106A |  800  |  46 ms |   0 KB |    ✅   | Brute force, math          |
-|  3 | 2092B |  1000 |      — |      — |    ⬜   | Construction, math         |
-|  4 | 2109A |  1200 |      — |      — |    ⬜   | Implementation             |
-|  5 | 2117C |  1200 |      — |      — |    ⬜   | Sorting, implementation    |
+|  3 | 2092B |  1000 |      — |      — |    🔁   | Construction, math         |
+|  4 | 2109A |  1200 |      — |      — |    🔁   | Implementation             |
+|  5 | 2117C |  1200 |      — |      — |    🔁   | Sorting, implementation    |
 |  6 | 2091E |  1300 | 125 ms |   0 KB |    ✅   | Brute force, number theory |
 |  7 | 2124D |  1700 | 108 ms | 100 KB |    ✅   | —                          |
 
+
 ---
+
+## 📅 2025-08-09 (Saturday)
+
+> *"The difference between ordinary and extraordinary is that little extra."*
+> — **Jimmy Johnson**
+
+---
+
+### 🎯 Goals
+
+| ✔️ | Task                        |
+| -- | --------------------------- |
+| ⬜  | Solve 5 problems            |
+| ⬜  | Review 2 previously failed  |
+| ⬜  | Practice constructive algos |
+
+---
+
+### 🧩 Problems to solve
+
+| # | ID | Level | Time | Memory | Status | Notes |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| 1 | 2130A | 800 | — | — | — | — |
+| 2 | 2104B | 1000 | — | — | — | — |
+| 3 | 2130B | 1100 | — | — | — | — |
+| 4 | 2113C | 1700 | — | — | — | — |
+| 5 | 2114D | 1400 | — | — | — | — |
+
+
+---
+
 
 ### 🧠 Reflections
 
