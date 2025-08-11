@@ -48,14 +48,12 @@ void solve() {
     if (n == 2) {
         std::cout << 0 << "\n";
     }
-
-    ans = 0;
+    int ans = 0, mx = 0, cnt = 0;
     for (int i = 0; i < n; i++) {
         if (a[i].size() == 1) {
             ans++;
         }
     }
-    mx = 0
     for (int i = 0; i < n; i++) {
         cnt = 0;
         for (int j: a[i]) {

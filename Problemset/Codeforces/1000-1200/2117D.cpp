@@ -37,26 +37,16 @@ void fast_io() {
 
 void solve() {
     int n; std::cin >> n;
-    std::vector<int> a(n), b(n);
+    std::vector<int> a(n);
     for (int& x: a) std::cin >> x;
-    for (int& x: b) std::cin >> x;
-
-    if (a[n-1] != b[n-1]) {
-        std::cout << "NO\n";
-        return;
-    }
-
-    for (int i = n-2; i >= 0; --i) {
-        if (b[i] == (a[i] ^ b[i+1]) || b[i] == a[i] || b[i] == (a[i] ^ a[i+1])) {
-            continue;
-        } else {
+    int diff = a[1] - a[0];
+    for (int i = 2; i < n; ++i) {
+        if (a[i] - a[i-1] != diff) {
             std::cout << "NO\n";
             return;
         }
-
     }
-
-    std::cout << "YES\n";
+    
 }
 
 int main() {
