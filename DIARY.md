@@ -131,17 +131,39 @@
 | 4 | 2113C | 1700 | 46 ms | 1000 KB | ✅ | — |
 | 5 | 2114D | 1400 | 140 ms | 1000 KB | ✅ | — |
 
+---
+
+## 📅 2025-08-11 (Sunday)
+
+> *"Success is the sum of small efforts, repeated day in and day out."*
+> — **Robert Collier**
+
+---
+
+### 🎯 Goals
+
+| ✔️ | Task                                   |
+| -- | -------------------------------------- |
+| ⬜ | add bfs and dfs implementation               |
+
+
+---
+
+### 🧩 Solved Problems
+
+| # | ID                               | Level | Time | Memory | Status | Notes                                                       |
+| - | -------------------------------- | :---: | ---- | ------ | ------ | ----------------------------------------------------------- |
+| 1 | 1042D                            |  x | —    | —      | ✅      | Konstrukcja, segmenty, logiczne podejście                   |
+| 2 | 1042E                            |  x | —    | —      | ✅      | Bardziej złożone, wymaga przemyślanej implementacji         |
+| 3 | CSES - Distinct Values Subarrays |   x  | —    | —      | ✅      | Dwukierunkowy wskaźnik (two pointers)                       |
+| 4 | CSES - Collecting Numbers 2      |   x   | —    | —      | ✅      | Segmenty rosnące, aktualizacja po zmianie elementu, Fenwick |
+| 5 | 2117D                            |  1200 | —    | —      | ✅      | — |
 
 ---
 
 
-### 🧠 Reflections
+### TODO:
 
-| Insight / Mistake / Thought                        |
-| -------------------------------------------------- |
-| Need to review construction problems (e.g., 2092B) |
-| Start using snippets more consistently             |
-| Brute force can still be optimal if n is small     |
 
 ---
 
