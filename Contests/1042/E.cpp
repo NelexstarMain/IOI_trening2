@@ -1,74 +1,77 @@
 #include <iostream>
 #include <vector>
-#include <numeric>
+#include <string>
 #include <algorithm>
+#include <map>
+#include <set>
+#include <queue>
+#include <stack>
+#include <numeric>
 
-// Funkcja do rozwiązania pojedynczego przypadku testowego
+using namespace std;
+
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+#define REP(i, a, b) for(int i = a; i <= b; ++i)
+#define FWD(i, a, b) for(int i = a; i < b; ++i)
+#define REV(i, a, b) for(int i = a; i >= b; --i)
+#define ALL(a) (a).begin(), (a).end()
+#define SIZE(a) (int)((a).size())
+
+const int INF = 1e9 + 7;
+const ll LINF = 1e18 + 7;
+const int MOD = 1e9 + 7;
+
+void fast_io() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+
 void solve() {
-    int n;
-    std::cin >> n;
-
-    std::vector<long long> a(n), b(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> a[i];
+    int n; std::cin >> n;
+    std::vector<std::vector<int>> a(n, std::vector<int>(n));
+    for (int i = 0; i < n; i++) {
+        int x, y;
+        std::cin >> x >> y;
+        --x, --y;
+        a[x].push_back(y);
+        a[y].push_back(x);
     }
-    for (int i = 0; i < n; ++i) {
-        std::cin >> b[i];
-    }
-
-    // Warunek 1: Ostatnie elementy muszą być takie same.
-    // Używamy indeksowania od 0, więc jest to n-1.
-    if (a[n - 1] != b[n - 1]) {
-        std::cout << "NO\n";
-        return;
+    if (n == 2) {
+        std::cout << 0 << "\n";
     }
 
-    // Warunek 2: Porównanie multizbiorów sum prefiksowych XOR.
-    // Aby porównać multizbiory, tworzymy wektory, sortujemy je i porównujemy.
-    
-    std::vector<long long> prefix_a, prefix_b;
-    
-    // Wstawiamy 0 dla pustego prefiksu
-    prefix_a.push_back(0);
-    prefix_b.push_back(0);
-
-    long long current_xor_a = 0;
-    long long current_xor_b = 0;
-
-    // Obliczamy sumy prefiksowe dla obu tablic
-    // Pomijamy ostatni element, ponieważ a[n-1] i b[n-1] muszą być równe,
-    // a co za tym idzie, ostateczne sumy XOR również będą równe.
-    // Uwzględnienie ich nie zmieni wyniku, ale można je pominąć dla optymalizacji.
-    for (int i = 0; i < n - 1; ++i) {
-        current_xor_a ^= a[i];
-        prefix_a.push_back(current_xor_a);
-
-        current_xor_b ^= b[i];
-        prefix_b.push_back(current_xor_b);
+    ans = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i].size() == 1) {
+            ans++;
+        }
     }
-    
-    // Sortujemy wektory, aby móc je porównać jako multizbiory
-    std::sort(prefix_a.begin(), prefix_a.end());
-    std::sort(prefix_b.begin(), prefix_b.end());
-
-    // Jeśli posortowane wektory są takie same, multizbiory też są
-    if (prefix_a == prefix_b) {
-        std::cout << "YES\n";
-    } else {
-        std::cout << "NO\n";
+    mx = 0
+    for (int i = 0; i < n; i++) {
+        cnt = 0;
+        for (int j: a[i]) {
+            cnt += (a[j].size() == 1);
+        }
+        mx = std::max(mx, cnt);
     }
+    std::cout << ans + mx << "\n";
 }
 
 int main() {
-    // Przyspieszenie operacji wejścia/wyjścia
-    std::ios_base::sync_with_stdio(false);
-    std::cin.tie(NULL);
-
-    int t;
-    std::cin >> t;
+    fast_io();
+    int t = 1;
+    // cin >> t;
     while (t--) {
         solve();
     }
-
     return 0;
 }
