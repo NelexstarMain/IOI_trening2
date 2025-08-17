@@ -144,7 +144,7 @@
 
 | ✔️ | Task                                   |
 | -- | -------------------------------------- |
-| ⬜ | add bfs and dfs implementation               |
+| ✅m | add bfs and dfs implementation               |
 
 
 ---

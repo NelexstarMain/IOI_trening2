@@ -37,38 +37,25 @@ void fast_io() {
 
 void solve() {
     int n; std::cin >> n;
-    std::vector<std::vector<int>> a(n);
+    std:vector<pii> obstacles(n);
+    std::vector<int> d(n); for (int& x: d) std::cin >> x;
+    for (int i = 0; i < n; i++) {
+        int l, r; std::cin >> l >> r;
+        obstacles[i] = {l, r};
+    }    
     for (int i = 0; i < n-1; i++) {
-        int x, y;
-        std::cin >> x >> y;
-        --x, --y;
-        a[x].push_back(y);
-        a[y].push_back(x);
-    }
-    if (n == 2) {
-        std::cout << 0 << "\n";
-        return;
-    }
-    int ans = 0, mx = 0, cnt;
-    for (int i = 0; i < n; i++) {
-        if (a[i].size() == 1) {
-            ans++;
+        if (obstacles[i+1].first + 1 < obstacles[i].second || obstacles[i+1].second - 1 > obstacles[i].first) {
+            std::cout << "NO\n";
+            return;
         }
+    
     }
-    for (int i = 0; i < n; i++) {
-        cnt = 0;
-        for (int j: a[i]) {
-            cnt += (a[j].size() == 1);
-        }
-        mx = std::max(mx, cnt);
-    }
-    std::cout << ans - mx << "\n";
 }
 
 int main() {
     fast_io();
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
