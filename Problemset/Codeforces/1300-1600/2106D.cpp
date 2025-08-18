@@ -27,12 +27,12 @@ int main(){
         }
         int ans = INF;
         for(int i = 0; i < M; i++){
-            int match_previous = i == 0 ? -1 : forwards_match[i - 1];
-            int match_next = i + 1 == M ? N : backwards_match[i + 1];
+            int match_previous = (i == 0) ? -1 : forwards_match[i - 1];
+            int match_next = (i + 1 == M) ? N : backwards_match[i + 1];
             if(match_next > match_previous){
                 ans = min(ans, b[i]);
             }
         }
-        cout << (ans == INF ? -1 : ans) << "\n";
+        cout << ((ans == INF) ? -1 : ans) << "\n";
     }
 }
