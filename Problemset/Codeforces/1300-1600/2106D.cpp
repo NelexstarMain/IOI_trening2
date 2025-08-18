@@ -1,43 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-void solve() {
-    int n, m;
-    cin >> n >> m;
-    vector<int> a(n), b(m);
-    for (int &x : a) cin >> x;
-    for (int &x : b) cin >> x;
-
-    // najpierw sprawdzamy bez dodawania
-    int j = 0;
-    for (int i = 0; i < n && j < m; i++) {
-        if (a[i] >= b[j]) j++;
+const int INF = 1e9 + 5;
+ 
+int main(){
+    int T; cin >> T;
+    while(T--){
+        int N, M; cin >> N >> M;
+        vector<int> a(N), b(M);
+        for(int i = 0; i < N; i++) cin >> a[i];
+        for(int i = 0; i < M; i++) cin >> b[i];
+        vector<int> backwards_match(M);
+        int j = N - 1;
+        for(int i = M - 1; i >= 0; i--){
+            while(j >= 0 && a[j] < b[i]) j--;
+            backwards_match[i] = j--;
+        }
+        vector<int> forwards_match(M);
+        j = 0;
+        for(int i = 0; i < M; i++){
+            while(j < N && a[j] < b[i]) j++;
+            forwards_match[i] = j++;
+        }
+        if(forwards_match.back() < N){
+            cout << 0 << endl;
+            continue;
+        }
+        int ans = INF;
+        for(int i = 0; i < M; i++){
+            int match_previous = i == 0 ? -1 : forwards_match[i - 1];
+            int match_next = i + 1 == M ? N : backwards_match[i + 1];
+            if(match_next > match_previous){
+                ans = min(ans, b[i]);
+            }
+        }
+        cout << (ans == INF ? -1 : ans) << "\n";
     }
-    if (j == m) {
-        cout << 0 << "\n";
-        return;
-    }
-
-    // znajdź pierwsze miejsce gdzie się zacięliśmy
-    int need = b[j]; // Igor potrzebuje >= need w tym miejscu
-
-    // spróbujmy "dodać" taki kwiat i iść dalej
-    j++; // po dodaniu sztucznego kwiatu
-    for (int i = 0; i < n && j < m; i++) {
-        if (a[i] >= b[j]) j++;
-    }
-    if (j == m) {
-        cout << need << "\n";
-    } else {
-        cout << -1 << "\n";
-    }
-}
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int t;
-    cin >> t;
-    while (t--) solve();
 }
