@@ -28,26 +28,18 @@ void fast_io() {
 }
 
 void solve() {
-        int n, m; std::cin >> n;
-        std::string a; std::cin >> a;
-        std::cin >> m;
-        std::string b; std::cin >> b;
-        std::string c; std::cin >> c;
-        for (int i = 0; i < m; i++) {
-            char z = b[i];
-            if (c[i] == 'D') {
-                a += z;
-            } else {
-                a = z + a;
-            }
-        }
-        std::cout << a << "\n";
+    long long n;
+    std::cin >> n;
+    std::vector<long long> solutions;
+    for (int i = 0; i < 18; i++) {
+        if (n % )
+    }
 }
 
 int main() {
     fast_io();
     int t = 1;
-    cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
