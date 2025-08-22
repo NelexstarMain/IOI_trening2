@@ -28,18 +28,33 @@ void fast_io() {
 }
 
 void solve() {
-    long long n;
-    std::cin >> n;
-    std::vector<long long> solutions;
-    for (int i = 0; i < 18; i++) {
-        if (n % )
+    ll n;
+    cin >> n;
+    vector<ll> solutions;
+
+    ll p = 10;
+    while (n >= p + 1) {
+        if (n % (p + 1) == 0) {
+            solutions.push_back(n / (p + 1));
+        }
+        p *= 10;
     }
+
+    sort(ALL(solutions));
+    if (solutions.empty()) {
+        std::cout << "0\n";
+        return;
+    }
+    cout << solutions.size() << "\n";
+    for (auto x : solutions) cout << x << " ";
+    cout << "\n";
 }
+
 
 int main() {
     fast_io();
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
