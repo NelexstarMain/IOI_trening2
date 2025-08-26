@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"c:\\Users\\Nelek\\Desktop\\IOI_trening\\Contests\\2108\\C.cpp\\","tests":[{"id":1756206245453,"input":"5\n8\n-1\n2\n8\n27\n57\n21446790\n","output":"2\n1\n2\n3\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Nelek\\Desktop\\IOI_trening\\Contests\\2108\\C.cpp\\","group":"local","local":true}
