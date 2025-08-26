@@ -32,17 +32,12 @@ void solve() {
         long long val_prev_even = (i_prev_even >= 0) ? a[i_prev_even] : INF;
         long long val_curr_even = (i_curr_even < n) ? a[i_curr_even] : INF;
 
-        // Warunek graniczny: dla ostatniego x_m, jeśli n jest nieparzyste,
-        // nie ma ograniczenia od prawej strony (a_{2m}).
+
         if (k == m && n % 2 != 0) {
             val_curr_even = INF;
         }
         
-        long long x_k = val_odd;
-        x_k = min(x_k, val_prev_even - x_prev);
-        x_k = min(x_k, val_curr_even);
-        
-        x_k = max(0LL, x_k);
+        long long x_k = max(min(min(val_odd, val_prev_even - x_prev), val_curr_even), 0LL);
 
         new_odd_sum += x_k;
         x_prev = x_k;

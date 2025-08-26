@@ -27,9 +27,7 @@ long long find_suitable_prime(long long k) {
             return p;
         }
     }
-    // A fallback for extremely large k. Since a solution is guaranteed,
-    // a small prime not dividing k will always exist.
-    return 101; // A safe bet
+    return 101;
 }
 
 void solve() {
@@ -41,9 +39,6 @@ void solve() {
     }
 
     long long p = find_suitable_prime(k);
-    
-    // The original logic with a loop to add k is okay if we do it on a small remainder.
-    // The modular inverse method is faster. Let's use it.
     long long k_rem = k % p;
     long long k_inv = modInverse(k_rem, p);
 
