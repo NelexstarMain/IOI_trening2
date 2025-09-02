@@ -9,27 +9,24 @@ void fast_io() {
     cin.tie(NULL);
 }
 
+std::vector<int> pre;
+
+void precount() {
+    pre.push_back(1);
+    int a = 1;
+    for (int i = 0; i < 30; i++) {
+        pre.push_back()
+    }
+
+}
+
 void solve() {
     int n, k;
     cin >> n >> k;
     vector<int> S(n);
     for (int &x : S) cin >> x;
 
-    priority_queue<int, vector<int>, greater<int>> pq;
-    for (int x : S) pq.push(x);
-
-    ll score = 1;
-
-    for (int op = 0; op < k; ++op) {
-        if (pq.empty()) break;
-        int m = pq.top();
-        pq.pop();
-        score = (score * 1LL * m) % MOD;
-
-        for (int i = 1; i < m; ++i) {
-            pq.push(i);
-        }
-    }
+    
 
     cout << score << "\n";
 }

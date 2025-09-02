@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
 typedef long long ll;
 #define all(x) x.begin(), x.end()
 #define vecin(name, len) vector<int> name(len); for (auto &_ : name) cin >> _;
 #define vecout(v) for (auto _ : v) cout << _ << " "; cout << endl;
- 
- 
+
 void solve() {
     int n; cin >> n;
     int k; cin >> k;
@@ -15,7 +13,7 @@ void solve() {
         cout << "YES" << endl;
         return;
     }
- 
+
     vector<int> bb = aa;
     sort(all(bb));
     int cutoff = bb[k - 2];
@@ -51,14 +49,14 @@ void solve() {
         cout << "YES" << endl;
     }
 }
- 
+
 int main() {
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int tt = 1;
- 
+
     cin >> tt;
- 
+
     while (tt--) solve();
     return 0;
 }
