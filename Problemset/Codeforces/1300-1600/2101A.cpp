@@ -28,26 +28,41 @@ void fast_io() {
 }
 
 void solve() {
-    int n, k; std::cin >> n >> k;
-    int cost = 1;
-    std::vector<ll> a(n); for (ll& x: a) std::cin >> x;
-    std::sort(ALL(n));
-    for (ll x: a) {
-        ll size = (1LL << x)
-        if (size <= k) {
-            k -= size;
+    int n; std::cin >> n;
+    vector<vector<int>> mat(n, vector<int>(n, 0));
+
+    int x = n / 2, y = n / 2;  
+    if (n % 2 == 0) x--, y--;   
+
+    int val = 0;                
+    mat[x][y] = val++;
+
+    int step = 1;                
+
+    while (val < n * n) {
+        int dx[] = {0, 1, 0, -1};
+        int dy[] = {1, 0, -1, 0};
+
+        for (int dir = 0; dir < 4; dir++) {
+            for (int s = 0; s < step; s++) {
+                x += dx[dir];
+                y += dy[dir];
+                if (x >= 0 && x < n && y >= 0 && y < n)
+                    mat[x][y] = val++;
+            }
+            if (dir == 1 || dir == 3) step++;
         }
-        ll newCost = 1;
-        for (int i = n-1; i > 0; --i) {
-            newCost *= i*(n-i);
-        }
+    }
+    for (auto &row : mat) {
+        for (auto &v : row) cout << v << " ";
+        cout << "\n";
     }
 }
 
 int main() {
     fast_io();
     int t = 1;
-    // cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
