@@ -18,7 +18,6 @@ void solve(int cs) {
         else if (s[i] == '?') cntq++;
     }
 
-    // sprawdzamy, czy da się osiągnąć t
     int s_ones = count(s.begin(), s.end(), '1');
     int t_ones = count(t.begin(), t.end(), '1');
     if (s_ones > t_ones) {
@@ -26,7 +25,6 @@ void solve(int cs) {
         return;
     }
 
-    // ruchy: zamiana ? → coś, zmiana 0→1, i ewentualne swapy
     int swaps = min(cnt01, cnt10);
     int remain = abs(cnt01 - cnt10);
     int moves = cntq + swaps + remain;
