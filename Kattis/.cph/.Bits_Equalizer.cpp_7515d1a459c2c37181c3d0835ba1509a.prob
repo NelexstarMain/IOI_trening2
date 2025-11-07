@@ -1,0 +1,1 @@
+{"name":"Local: Bits_Equalizer","url":"c:\\Users\\Nelek\\Desktop\\IOI_trening\\Kattis\\Bits_Equalizer.cpp","tests":[{"id":1762515966274,"input":"3\n01??00\n001010\n01\n10\n110001\n000000\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Nelek\\Desktop\\IOI_trening\\Kattis\\Bits_Equalizer.cpp","group":"local","local":true}
