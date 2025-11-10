@@ -20,7 +20,7 @@ void solve(int cs) {
 
     int s_ones = count(s.begin(), s.end(), '1');
     int t_ones = count(t.begin(), t.end(), '1');
-    if (s_ones > t_ones) {
+    if (s_ones > t_ones) { 
         cout << "Case " << cs << ": -1\n";
         return;
     }
