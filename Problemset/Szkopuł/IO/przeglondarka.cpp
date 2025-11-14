@@ -7,7 +7,7 @@
 
 struct Node {
     std::map<char, std::unique_ptr<Node>> children;
-    bool is_url_end = false; 
+    int url_count = 0;  
 
     int urls_in_subtree = 0;       
     long long edges_in_subtree = 0; 
@@ -23,11 +23,11 @@ void insert(Node& root, const std::string& url) {
         }
         current = current->children[ch].get();
     }
-    current->is_url_end = true;
+    current->url_count = true;
 }
 
 void dfs_calculate(Node* node) {
-    if (node->is_url_end) {
+    if (node->url_count) {
         node->urls_in_subtree = 1;
         node->max_depth = 0;
     }
@@ -40,7 +40,7 @@ void dfs_calculate(Node* node) {
             node->urls_in_subtree += child_node->urls_in_subtree;
             node->edges_in_subtree += child_node->edges_in_subtree + 1; 
             
-            if (child_node->max_depth + 1 > node->max_depth) {
+            if (child_node->max_depth + 1 >= node->max_depth) {
                 node->max_depth = child_node->max_depth + 1;
                 node->deepest_child_char = key;
             }
@@ -49,21 +49,23 @@ void dfs_calculate(Node* node) {
 }
 
 void get_optimal_order(Node* node, std::string current_path, std::vector<std::string>& order) {
-    if (node->is_url_end) {
+    for (int k = 0; k < node->url_count; ++k)
         order.push_back(current_path);
-    }
 
-    for (auto const& [key, val] : node->children) {
-        if (val->urls_in_subtree > 0 && key != node->deepest_child_char) {
-            get_optimal_order(val.get(), current_path + key, order);
-        }
-    }
-    
-    if (node->deepest_child_char != 0) {
-        Node* deepest_child = node->children[node->deepest_child_char].get();
-        get_optimal_order(deepest_child, current_path + node->deepest_child_char, order);
-    }
+    std::vector<std::pair<char, Node*>> children;
+    for (auto& [c, ptr] : node->children)
+        if (ptr->urls_in_subtree > 0)
+            children.push_back({c, ptr.get()});
+
+    std::sort(children.begin(), children.end(),
+              [](auto& a, auto& b) {
+                  return a.second->urls_in_subtree > b.second->urls_in_subtree;
+              });
+
+    for (auto& [c, child] : children)
+        get_optimal_order(child, current_path + c, order);
 }
+
 
 int main() {
     std::ios_base::sync_with_stdio(false);

@@ -1,0 +1,20 @@
+# Binaries
+*.exe
+*.o
+*.out
+*.a
+*.so
+
+# Test files
+int
+out1
+out2
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# System
+.DS_Store
+Thumbs.db
