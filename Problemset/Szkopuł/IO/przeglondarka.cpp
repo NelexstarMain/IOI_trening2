@@ -23,7 +23,7 @@ struct Node {
 void insert(Node& root, const std::string& url) {
     Node* current = &root;
     for (char ch : url) {
-        if (!current->children.contains(ch)) {
+        if (current->children.find(ch) == current->children.end()) {
             current->children[ch] = new Node();
         }
         current = current->children[ch];
@@ -59,8 +59,13 @@ void get_optimal_order(Node* node, std::string& current_path, std::vector<std::s
             if (a.second->urls_in_subtree != b.second->urls_in_subtree) {
                 return a.second->urls_in_subtree > b.second->urls_in_subtree;
             }
-            return a.second->max_depth < b.second->max_depth;
+            
+            if (a.second->max_depth != b.second->max_depth) {
+                return a.second->max_depth < b.second->max_depth; 
+            }
+            return a.first < b.first; 
         });
+
     for (const auto& [ch, child] : children_vec) {
         current_path.push_back(ch);
         get_optimal_order(child, current_path, order);
@@ -86,7 +91,7 @@ int main() {
     std::vector<std::string> visit_order;
     std::string current_path;
     get_optimal_order(root.get(), current_path, visit_order);
-    root.reset(); 
+    root.reset(); // Zwolnienie trie
 
     std::string res;
     res += visit_order[0];
@@ -98,7 +103,7 @@ int main() {
         while (lcp_len < prev.length() && lcp_len < curr.length() && prev[lcp_len] == curr[lcp_len]) {
             lcp_len++;
         }
-        if (prev.length() - lcp_len + 1 + curr.length() - lcp_len > curr.length()) {
+        if (prev.length() + 1 >= 2 * lcp_len) {
             res += curr;
             res += 'E';
         } else {
