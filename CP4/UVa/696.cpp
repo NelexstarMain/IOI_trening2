@@ -96,7 +96,6 @@ int main() {
         ma = max(m, n);
 
         if(mi == 1) res = ma;
-
         else res = (ma * mi + 1) / 2;
         cout << res << " knights may be placed on a " << m << " row " << n << " column board.\n"; 
     }

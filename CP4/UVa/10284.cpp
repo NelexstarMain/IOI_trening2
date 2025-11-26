@@ -31,7 +31,6 @@ void solve() {
         } else {
             if (x < 8 && y < 8) {
                 cb[y][x] = c; 
-                attacked[y][x] = true; 
             }
             x++;
         }
