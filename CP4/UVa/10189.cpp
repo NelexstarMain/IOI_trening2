@@ -27,22 +27,49 @@ void fast_io() {
     cin.tie(NULL);
 }
 
-void solve() {
+bool solve(int c) {
     int n, m; std::cin >> n >> m;
+    if (n+m == 0) return false;
+    if (c > 1) {
+        std::cout << "\n";
+    }
     std::vector<std::vector<int>> map(n, std::vector<int>(m, 0));
     for (int i = 0; i < n; i++) {
+        std::string s; std::cin >> s;
         for (int j = 0; j < m; j++) {
-            
+            if (s[j] == '*') {
+                map[i][j] = -1;
+                int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+                int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+                for (int z = 0; z < 8; z++) {
+                    if (0 <= dx[z]+i && dx[z]+i < n && 0 <= dy[z]+j && dy[z]+j < m) {
+                        if (map[dx[z]+i][dy[z]+j] != -1) {
+                            map[dx[z]+i][dy[z]+j]++;
+                        }
+                    }
+                }
+            }
         }
     }
+    std::cout <<  "Field #" << c << ":\n";
+    for (int i = 0; i < n; i++) {
+        std::string t = "";
+        for (int j = 0; j < m; j++) {
+            if (map[i][j] == -1){
+                std::cout << '*';
+            } else {
+                std::cout << std::to_string(map[i][j]);
+            }           
+        }
+        std::cout << "\n";
+    }
+    return true;
 }
 
 int main() {
     fast_io();
-    int t = 1;
-    if(!(cin >> t)) return 0;
-    while (t--) {
-        solve();
-    }
+    int count = 1;
+    while (solve(count)) count++;
     return 0;
 }
