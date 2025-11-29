@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include <iomanip>  // <-- potrzebne do fixed i setprecision
+#include <iomanip>
 
 using namespace std;
 
