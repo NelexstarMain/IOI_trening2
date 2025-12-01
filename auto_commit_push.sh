@@ -1,33 +1,33 @@
 #!/bin/bash
 
-# Użycie 'set -e' powoduje, że skrypt zatrzymuje się natychmiast, gdy 
-# jakakolwiek komenda zwróci błąd (status wyjścia != 0).
+# Zatrzymuje skrypt przy każdym błędzie
 set -e 
 
-# --- Generowanie Losowego Ciągu (15 znaków) ---
 RANDOM_STRING=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15)
 
-echo "--- START: Automatyczna synchronizacja ---"
+echo "--- START: Synchronizacja ---"
 
-# 1. Dodaj wszystkie pliki
-git add .
+# 1. Dodaj WSZYSTKIE zmiany (nowe, zmienione i usunięte pliki)
+git add -A
 
-# 2. Sprawdź, czy są zmiany do commitowania
-# Jeśli nie ma zmian, kończy działanie skryptu
-if git diff-index --quiet HEAD --; then
-    echo "Brak zmian do zatwierdzenia. Zakończono."
+# 2. Sprawdź czy są zmiany. Jeśli git status --porcelain jest pusty, wyjdź.
+if [ -z "$(git status --porcelain)" ]; then
+    echo "⚠️ Brak zmian do zatwierdzenia. Kończę."
     exit 0
 fi
 
-# 3. Commit zmian
+# 3. Commit
+echo "Komitowanie: $RANDOM_STRING"
 git commit -m "$RANDOM_STRING"
 
-# 4. PULL (Pobierz najnowsze zmiany z repozytorium)
-# Używamy --rebase, aby umieścić nasz commit na wierzchu.
-# UWAGA: Jeśli wystąpi konflikt, skrypt ZATRZYMA SIĘ!
+# 4. Pull z Rebase i Autostash (To najważniejsza linia, której brakowało)
+# --autostash chroni przed brudnym katalogiem roboczym (rzadkie tu, ale bezpieczne)
+echo "Pobieranie zmian (Pull)..."
+git pull --rebase --autostash
 
-# 5. PUSH (Wyślij nasze zmiany)
-git push
+# 5. Push
+# -u origin HEAD: automatycznie ustawia gałąź na serwerze, jeśli jej nie ma
+echo "Wysyłanie zmian (Push)..."
+git push -u origin HEAD
 
-echo "Zmiany zakończone pomyślnie."
-echo "--- KONIEC ---"
+echo "✅ GOTOWE!"
