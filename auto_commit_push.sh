@@ -15,7 +15,7 @@ if [ -z "$(git status --porcelain)" ]; then
     echo "⚠️ Brak zmian do zatwierdzenia. Kończę."
     exit 0
 fi
-
+#nowa wesjia
 # 3. Commit
 echo "Komitowanie: $RANDOM_STRING"
 git commit -m "$RANDOM_STRING"
