@@ -25,7 +25,6 @@ git commit -m "$RANDOM_STRING"
 # 4. PULL (Pobierz najnowsze zmiany z repozytorium)
 # Używamy --rebase, aby umieścić nasz commit na wierzchu.
 # UWAGA: Jeśli wystąpi konflikt, skrypt ZATRZYMA SIĘ!
-git pull 
 
 # 5. PUSH (Wyślij nasze zmiany)
 git push
