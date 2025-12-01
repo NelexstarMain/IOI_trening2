@@ -43,7 +43,7 @@ void solve() {
         }
     }
 
-   ll count = 0;
+    ll count = 0;
 
     for (auto &secret_code : permutaions) {
         int a = 0; 
