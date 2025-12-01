@@ -21,6 +21,7 @@ elif t == 4:
 
 elif t == 5:
     print(sum(x for x in A if x % 2 == 0))
+    //new
 
 elif t == 6:
     print(''.join(chr(x % 26 + ord('a')) for x in A))
