@@ -12,10 +12,9 @@ void fast_io() {
 }
 
 void solve() {
-    // Używamy long long (ll) dla czasów, żeby być bezpiecznym
     std::vector<pll> JOHNT(10);
     std::vector<std::vector<ll>> parameters(10, std::vector<ll>(3));
-    std::vector<ll> last(10, -1e18); // Inicjalizacja małą liczbą
+    std::vector<ll> last(10, -1e18); 
 
     for (int i = 0; i < 10; i++) {
         ll n, k; std::cin >> n >> k;
