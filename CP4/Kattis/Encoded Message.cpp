@@ -38,6 +38,7 @@ void solve() {
             res += s[index];
         }
         index = (index+SIZE(s)-1)%SIZE(s);
+        std::cout << 
     }
     std::cout << res << "\n";
 
