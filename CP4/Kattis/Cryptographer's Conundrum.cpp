@@ -27,6 +27,7 @@ void fast_io() {
     cin.tie(NULL);
 }
 
+
 void solve() {
     std::string s; std::cin >> s;
     int res = 0;
