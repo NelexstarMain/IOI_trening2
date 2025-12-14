@@ -31,8 +31,7 @@ void solve() {
     std::string s; 
     std::cin >> s;
     if (s.size() <= 2) {
-        for(int i=0; i<8; i++) 
-        std::cin >> s;
+        for(int i=0; i<10; i++) std::cin >> s;
         std::cout << "\n";
         return;
     }
