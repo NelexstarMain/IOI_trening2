@@ -27,23 +27,18 @@ void fast_io() {
     cin.tie(NULL);
 }
 
-void solve() {
-    int n; std::cin >> n;
-    std::vector<int> res;
-    for (int i = 0; i < n; i++) {
-        int r = 0;
-        for (int j = 0; j < n; j++) {
-            int c; std::cin >> c;
-            r |= c;
-        }
-        res.PB(r);
-    }
-    for (int x: res) std::cout << x << " ";
-    std::cout << "\n";
+void solve(int z) {
+    int n, k; std::cin >> n >> k;
+    ll lim = (1 << n);
+    std::cout << "Case #" << z << ": ";
+    if (k%lim==lim-1) std::cout << "ON\n";
+    else std::cout << "OFF\n";
 }
 
 int main() {
     fast_io();
-    solve();
+    int T; std::cin >> T;
+    int z = 1;
+    while (T--) solve(z++);
     return 0;
 }
