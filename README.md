@@ -1,7 +1,5 @@
 <div align="center">
   <img src="Resources/logo.png" alt="IOI Training Logo" width="220"/>
-  
-  <h1>IOI Training 2</h1>
   <p><strong>Advanced Repository for Algorithmic Problem Solving</strong></p>
 
   <div>
