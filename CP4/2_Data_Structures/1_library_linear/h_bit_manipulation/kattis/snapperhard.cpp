@@ -6,7 +6,7 @@ using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
 using pii = pair<int, int>;
-using pll = pair<ll, ll>;
+using pll = pair<ll, ll>; 
 
 #define F first
 #define S second
