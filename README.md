@@ -73,7 +73,8 @@ Standardized build procedures using the GCC (`g++`) toolchain for Linux-based en
 Optimized for execution speed and static linking.
 
 ```bash
-g++ -O3 -static -std=c++17 main_file.cpp -o solution
+g++ -O3 -static -std=c++17 \
+    main.cpp -o solution
 ./solution < input.txt
 ```
 
@@ -81,7 +82,10 @@ g++ -O3 -static -std=c++17 main_file.cpp -o solution
 Aggressive error checking for memory safety and undefined behavior.
 
 ```Bash
-g++ -std=c++17 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O  main_file.cpp -o diagnostic_build
+g++ -std=c++17 -O2 \
+    -Wall -Wextra -Wshadow \
+    -fsanitize=address,undefined \
+    main.cpp -o diagnostic_build  diagnostic_build
 ```
 <details> <summary><b>Technical Flag Specifications</b></summary>
 
