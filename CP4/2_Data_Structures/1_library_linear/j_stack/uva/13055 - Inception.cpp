@@ -27,25 +27,24 @@ void fast_io() {
     cin.tie(NULL);
 }
 
+
 void solve() {
-    std::string s;
-    int num = 0;
-    while (std::cin >> s) {
-        num++;
-        if (s == "end") break;
-        std::vector<char> a;
-        for (char x: s) {
-            bool find = false;
-            for (int i = 0; i<SIZE(a); i++) {
-                if (a[i] >= x) {
-                    find = true;
-                    a[i] = x;
-                    break;
-                }
+    int n; std::cin >> n;
+    std::stack<std::string> a;
+    for (int i = 0; i < n; i++) {
+        std::string s; std::cin >> s;
+        if (s == "Sleep") {
+            std::string name; std::cin >> name;
+            a.push(name);
+        } else if (s == "Test") {
+            if (a.empty()) {
+                std::cout << "Not in a dream\n";
+            } else {
+                std::cout << a.top() << "\n";
             }
-            if (!find) a.PB(x);
+        } else {
+            if (!a.empty()) a.pop();
         }
-        std::cout << "Case " << num << ": "  << SIZE(a) << "\n";
     }
 }
 
