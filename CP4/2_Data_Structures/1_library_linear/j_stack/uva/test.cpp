@@ -29,29 +29,28 @@ void fast_io() {
 
 void solve() {
     std::string s;
+    int num = 0;
     while (std::cin >> s) {
+        num++;
         if (s == "end") break;
         std::vector<char> a;
         for (char x: s) {
             bool find = false;
             for (int i = 0; i<SIZE(a); i++) {
-                if (a[i] <= x) {
+                if (a[i] >= x) {
                     find = true;
+                    a[i] = x;
                     break;
                 }
             }
             if (!find) a.PB(x);
         }
-        std::cout << SIZE(a) << "\n";
+        std::cout << "Case " << num << ": "  << SIZE(a) << "\n";
     }
 }
 
 int main() {
     fast_io();
-    int t = 1;
-    if(!(cin >> t)) return 0;
-    while (t--) {
-        solve();
-    }
+    solve();
     return 0;
 }
