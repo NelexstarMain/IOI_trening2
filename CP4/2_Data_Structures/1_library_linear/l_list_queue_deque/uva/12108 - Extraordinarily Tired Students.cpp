@@ -1,65 +1,70 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-using ll = long long;
-using ull = unsigned long long;
-using ld = long double;
-using pii = pair<int, int>;
-using pll = pair<ll, ll>;
-
-#define F first
-#define S second
-#define PB push_back
-#define MP make_pair
-#define REP(i, a, b) for(int i = a; i <= b; ++i)
-#define FWD(i, a, b) for(int i = a; i < b; ++i)
-#define REV(i, a, b) for(int i = a; i >= b; --i)
-#define ALL(a) (a).begin(), (a).end()
-#define SIZE(a) (int)((a).size())
-
-const int INF = 1e9 + 7;
-const ll LINF = 1e18 + 7;
-const int MOD = 1e9 + 7;
-
-void fast_io() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
-
 struct Student {
     int a, b, c;
-    int nextchange;
-    bool is_sleeping;
 
-    Student(int _a, int _b, int _c) : a(_a), b(_b), c(_c) {
-        if (c > a) { is_sleeping = true; nextchange = ((a+b)-c) }
-        else { is_sleeping = false; nextchange = (a-c) }
+    Student(int _a, int _b, int _c) : a(_a), b(_b), c(_c) {}
+
+    bool is_sleeping() {
+        return c > a;
     }
-    bool check(int t, int n, int sleeping) {  // true = sleeping
-        if (t > nextchange && (sleeping+1 >= (int)((n+1))/2)) { is_sleeping = true; nextchange += b; return true;}
-        else return false;
+
+    void update(int awake, int sleeping) {
+        if (c == a) {
+            if (sleeping > awake) {
+                c++;
+            } else {
+                c = 1;
+            }
+        } else if (c == a + b) {
+            c = 1;
+        } else {
+            c++;
+        }
     }
-}
-
-
+};
 
 void solve() {
-    int n; 
-    while (std::cin >> n && n > 0) {
-        std::vector<Student> A; 
+    int n, caseNum = 1;
+    while (cin >> n && n > 0) {
+        vector<Student> students;
         for (int i = 0; i < n; i++) {
-            int a, b, c; std::cin >> a >> b >> c;
-            Student(a, b, c);
-        }   
-    }
-    for (int t = 1; t < 10e5; t++) {
-        
+            int a, b, c;
+            cin >> a >> b >> c;
+            students.push_back(Student(a, b, c));
+        }
+
+        int result = -1;
+        for (int t = 1; t <= 1000000; t++) {
+            int current_sleeping = 0;
+            int current_awake = 0;
+
+            for (int i = 0; i < n; i++) {
+                if (students[i].is_sleeping()) current_sleeping++;
+                else current_awake++;
+            }
+
+            if (current_awake == n) {
+                result = t;
+                break;
+            }
+
+            for (int i = 0; i < n; i++) {
+                students[i].update(current_awake, current_sleeping);
+            }
+        }
+
+        cout << "Case " << caseNum++ << ": " << result << endl;
     }
 }
 
 int main() {
-    fast_io();
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
     solve();
     return 0;
 }
