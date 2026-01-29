@@ -27,13 +27,6 @@ void fast_io() {
     cin.tie(NULL);
 }
 
-// 5 1
-// 1 10 Alice 5
-// 1 15 Bob 15
-// 2 20
-// 2 25
-// 2 30
-
 struct Patient {
     ll score; std::string name;
 
