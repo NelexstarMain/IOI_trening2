@@ -26,19 +26,17 @@ void fast_io() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 }
+
 void solve() {
-    int n, k; std::cin >> n >> k;
-    std::vector<int> A(n+2, 0);
-    for (int i = 0; i < k; i++) {
-        int c; std::cin >> c; 
-        A[c]++;
-    }
-    int found = 0;
+    int n; std::cin >> n;
+    std::vector<int> A(1000, 0);
     for (int i = 0; i < n; i++) {
-        if (A[i] > 0) found++;
-        else std::cout << i << "\n";
+        int a, b; std::cin >> a >> b;
+        for (int j = a; j <= b; j++) A[j]++;
     }
-    std::cout << "Mario got " << found << " of the dangerous obstacles.\n";
+    int count = 0;
+    for (int x: A) count += (x > 0);
+    std::cout << count << "\n";
 }
 
 int main() {
