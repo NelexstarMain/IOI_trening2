@@ -16,7 +16,7 @@
 </div>
 
 <!-- thin animated bar -->
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364t&height=5"/>
 
 </div>
 
@@ -61,7 +61,7 @@ This repository serves as a centralized archive of source codes for algorithmic 
   </tbody>
 </table>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=5"/>
 
 ## 2. Technical Stack & Methodology
 
@@ -72,7 +72,7 @@ The project focuses on high-performance implementations utilizing modern C++ sta
 * **Optimization**: Dynamic Programming (Classical & Advanced), Greedy Heuristics, Binary Search on Answer.
 * **Standards**: Leveraging C++ STL (Standard Template Library) for memory-efficient computation.
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=5"/>
 
 ## 3. Compilation & Debugging
 
@@ -99,7 +99,7 @@ g++ -std=c++17 -O2 \
 
 <details> <summary><b>Technical Flag Specifications</b></summary> <table width="100%"> <tr> <td width="30%"><code>-Wall -Wextra</code></td> <td>Enables a comprehensive set of compiler warnings for code quality.</td> </tr> <tr> <td><code>-Wshadow</code></td> <td>Detects instances where local variables shadow outer scopes.</td> </tr> <tr> <td><code>-fsanitize=address</code></td> <td>Runtime memory error detector (out-of-bounds, use-after-free).</td> </tr> <tr> <td><code>-fsanitize=undefined</code></td> <td>Identifies non-portable or undefined behavior (UB) in C++.</td> </tr> </table> </details>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0f2027,50:203a43,100:2c5364&height=5"/>
 
 ## 4. Supplementary Information
 
