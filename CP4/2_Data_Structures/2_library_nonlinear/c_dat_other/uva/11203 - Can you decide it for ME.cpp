@@ -28,6 +28,7 @@ void fast_io() {
 }
 
 void solve() {
+    
     std::string s; std::cin >> s;
     bool M = false, E = false;
     int x = 0, y = 0, z = 0;

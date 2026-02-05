@@ -1,13 +1,23 @@
 <div align="center">
-  <img src="Resources/logo.png" alt="IOI Training Logo" width="220"/>
-  <p><strong>Advanced Repository for Algorithmic Problem Solving</strong></p>
 
-  <div>
-    <img src="https://img.shields.io/badge/Language-C%2B%2B17%20%2F%20C%2B%2B20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white" alt="C++ Standard" />
-    <img src="https://img.shields.io/badge/Environment-Linux%20%2F%20GCC-FCC624?style=for-the-badge&logo=linux&logoColor=black" alt="Environment" />
-    <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" alt="Status" />
-    <img src="https://img.shields.io/badge/Author-NelexstarMain-181717?style=for-the-badge&logo=github&logoColor=white" alt="Author" />
-  </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=140&section=header" width="100%"/>
+
+<img src="Resources/logo.png" width="220"/>
+
+<p><strong>Advanced Repository for Algorithmic Problem Solving</strong></p>
+
+<div>
+  <img src="https://img.shields.io/badge/Language-C%2B%2B17%20%2F%20C%2B%2B20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Environment-Linux%20%2F%20GCC-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Focus-Algorithms-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Author-NelexstarMain-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</div>
+
+<!-- thin animated bar -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&height=5"/>
+
 </div>
 
 <br />
@@ -76,34 +86,29 @@ Optimized for execution speed and static linking.
 g++ -O3 -static -std=c++17 \
     main.cpp -o solution
 ./solution < input.txt
+Diagnostic Profile (Development)
 ```
 
-### Diagnostic Profile (Development)
 Aggressive error checking for memory safety and undefined behavior.
 
-```Bash
+```bash
 g++ -std=c++17 -O2 \
     -Wall -Wextra -Wshadow \
     -fsanitize=address,undefined \
     main.cpp -o diagnostic_build  diagnostic_build
 ```
-<details> <summary><b>Technical Flag Specifications</b></summary>
 
-
-<table width="100%"> <tr> <td width="30%"><code>-Wall -Wextra</code></td> <td>Enables a comprehensive set of compiler warnings for code quality.</td> </tr> <tr> <td><code>-Wshadow</code></td> <td>Detects instances where local variables shadow outer scopes.</td> </tr> <tr> <td><code>-fsanitize=address</code></td> <td>Runtime memory error detector (out-of-bounds, use-after-free).</td> </tr> <tr> <td><code>-fsanitize=undefined</code></td> <td>Identifies non-portable or undefined behavior (UB) in C++.</td> </tr> </table> </details>
+<details> <summary><b>Technical Flag Specifications</b></summary> <table width="100%"> <tr> <td width="30%"><code>-Wall -Wextra</code></td> <td>Enables a comprehensive set of compiler warnings for code quality.</td> </tr> <tr> <td><code>-Wshadow</code></td> <td>Detects instances where local variables shadow outer scopes.</td> </tr> <tr> <td><code>-fsanitize=address</code></td> <td>Runtime memory error detector (out-of-bounds, use-after-free).</td> </tr> <tr> <td><code>-fsanitize=undefined</code></td> <td>Identifies non-portable or undefined behavior (UB) in C++.</td> </tr> </table> </details>
 
 ## 4. Supplementary Information
 
-> [!IMPORTANT]
-> **Project Intent**
-> This repository is for educational and documentation purposes. Certain implementations may follow contest-style coding practices (high-speed drafting) rather than enterprise software patterns.
+[!IMPORTANT]
+Project Intent
+This repository is for educational and documentation purposes. Certain implementations may follow contest-style coding practices (high-speed drafting) rather than enterprise software patterns.
 
-> [!TIP]
-> **Contributions & Optimization**
-> If you identify logic errors or potential complexity optimizations, please open a formal **Issue** or submit a **Pull Request**.
-
----
+[!TIP]
+Contributions & Optimization
+If you identify logic errors or potential complexity optimizations, please open a formal Issue or submit a Pull Request.
 
 <div align="center">
-  <sub>Developer: <b>NelexstarMain</b> | &copy; 2026 Competitive Programming Archive</sub>
-</div>
+ <br/> <!-- bottom wave --> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,50:203a43,100:0f2027&height=140&section=footer"/> </div> 
