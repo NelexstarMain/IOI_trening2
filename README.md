@@ -102,13 +102,13 @@ g++ -std=c++17 -O2 \
 
 ## 4. Supplementary Information
 
-[!IMPORTANT]
-Project Intent
-This repository is for educational and documentation purposes. Certain implementations may follow contest-style coding practices (high-speed drafting) rather than enterprise software patterns.
+>[!IMPORTANT]
+>*Project Intent*
+>This repository is for educational and documentation purposes. Certain implementations may follow contest-style coding practices (high-speed drafting) rather than enterprise software patterns.
 
-[!TIP]
-Contributions & Optimization
-If you identify logic errors or potential complexity optimizations, please open a formal Issue or submit a Pull Request.
+>[!TIP]
+>*Contributions & Optimization*
+>If you identify logic errors or potential complexity optimizations, please open a formal Issue or submit a Pull Request.
 
 <div align="center">
  <br/> <!-- bottom wave --> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,50:203a43,100:0f2027&height=140&section=footer"/> </div> 
