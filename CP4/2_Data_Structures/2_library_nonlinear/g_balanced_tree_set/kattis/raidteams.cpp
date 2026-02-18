@@ -39,26 +39,24 @@ void solve() {
     }
 
     while (true) {
-        vector<Object*> current_team;
+        vector<std::string> current_team; // Tworzy sie drużyna
 
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 3; j++) { // wybieramy 3 osoby
             while (!skills[j].empty() && (*skills[j].begin())->used) {
                 skills[j].erase(skills[j].begin());
-            }
+            } // oczyszczamy z zurzutych
 
-            if (skills[j].empty()) goto end_loop; 
+            if (skills[j].empty()) goto end_loop; // KONIEC
 
-            Object* best = *skills[j].begin();
-            best->used = true; 
-            current_team.push_back(best);
-            skills[j].erase(skills[j].begin());
+            Object* best = *skills[j].begin(); // Nowy najlepszy
+            best->used = true; // dajemy że jest zuzyty
+            current_team.push_back(best->name); // dodajmy do druzyty
+            skills[j].erase(skills[j].begin()); 
         }
 
-        vector<string> names;
-        for (auto p : current_team) names.push_back(p->name);
-        sort(names.begin(), names.end());
+        std::sort(current_team.begin(), current_team.end());
 
-        cout << names[0] << " " << names[1] << " " << names[2] << "\n";
+        cout << current_team[0] << " " << current_team[1] << " " << current_team[2] << "\n";
     }
     end_loop:;
 }
