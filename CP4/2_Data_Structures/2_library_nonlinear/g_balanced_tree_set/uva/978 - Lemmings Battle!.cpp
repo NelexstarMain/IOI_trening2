@@ -41,7 +41,7 @@ void solve() {
             if (left < right) Bv.PB(right-left);
             else if (left > right) Gv.PB(left-right);
         }
-        for (int x: Gv) G.insert(x); 
+        for (int x: Gv) G.insert(x);    
         for (int x: Bv) B.insert(x); 
         Gv.clear(); Bv.clear();
     }
