@@ -13,8 +13,8 @@ struct Object {
     bool used = false; 
 };
 
-struct Comp {
-    int id;
+struct Comp { // Comperator działajacy dla wszyskich parametrów
+    int id; // Który Parametr
     bool operator()(const Object* lhs, const Object* rhs) const {
         if (lhs->s[id] != rhs->s[id]) 
             return lhs->s[id] > rhs->s[id]; 
@@ -31,10 +31,10 @@ void solve() {
         set<Object*, Comp>(Comp{2}) 
     };
 
-    for (int i = 0; i < n; i++) {
-        cin >> players[i].name >> players[i].s[0] >> players[i].s[1] >> players[i].s[2];
-        for (int j = 0; j < 3; j++) {
-            skills[j].insert(&players[i]);
+    for (int i = 0; i < n; i++) { // Najpierw odczytuje kazde polecenie
+        cin >> players[i].name >> players[i].s[0] >> players[i].s[1] >> players[i].s[2]; 
+        for (int j = 0; j < 3; j++) { 
+            skills[j].insert(&players[i]); // potem tworzy klase objekt do którego sie odwołuje, W kazdym set jest odwołanie do tego samego Objektu wiec used sie zmienia na raz
         }
     }
 
@@ -44,21 +44,21 @@ void solve() {
         for (int j = 0; j < 3; j++) { // wybieramy 3 osoby
             while (!skills[j].empty() && (*skills[j].begin())->used) {
                 skills[j].erase(skills[j].begin());
-            } // oczyszczamy z zurzutych
+            } // oczyszczamy z zurzytych
 
-            if (skills[j].empty()) goto end_loop; // KONIEC
+            if (skills[j].empty()) goto end_loop; // KONIEC 
 
-            Object* best = *skills[j].begin(); // Nowy najlepszy
-            best->used = true; // dajemy że jest zuzyty
-            current_team.push_back(best->name); // dodajmy do druzyty
+            Object* best = *skills[j].begin(); // Nowy kandydat
+            best->used = true; // Dajemy że jest zuzyty
+            current_team.push_back(best->name); // Dodajmy do drużyny
             skills[j].erase(skills[j].begin()); 
         }
 
-        std::sort(current_team.begin(), current_team.end());
+        std::sort(current_team.begin(), current_team.end()); // Sortujemu nazwy majom być leksograficznie posortowane
 
-        cout << current_team[0] << " " << current_team[1] << " " << current_team[2] << "\n";
+        cout << current_team[0] << " " << current_team[1] << " " << current_team[2] << "\n"; // wypisujemy
     }
-    end_loop:;
+    end_loop:; // Kończy kod
 }
 
 int main() {
