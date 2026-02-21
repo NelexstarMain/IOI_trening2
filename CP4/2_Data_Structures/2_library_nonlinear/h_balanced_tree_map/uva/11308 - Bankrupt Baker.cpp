@@ -59,7 +59,7 @@ void solve() {
         if (cost <= b) C.PB({l, cost});
     }
     
-    std::sort(ALL(C), [](auto& x, auto& y){
+    std::sort(ALL(C), [](std::pair<std::string, int>& x, std::pair<std::string, int>& y){
         if (x.S != y.S) return x.S < y.S;
         return x.F < y.F; 
     });
