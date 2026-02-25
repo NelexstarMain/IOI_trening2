@@ -1,0 +1,5 @@
+ som korzysci z posortwania gdyz mozemy zrobic wyszukiwanie binarne dla szybszego znalezienia wierzchołka czy jest tam albo inne kozysci z wyszukiwania binarnego
+ ale to sie opłąca tylko gdy wiemy zeby bedziemy dużo razy wyszukiwać w kazdym 
+
+ złożonosc to bedzie NlogN
+ 

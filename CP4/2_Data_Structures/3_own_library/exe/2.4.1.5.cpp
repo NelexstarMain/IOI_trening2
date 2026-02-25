@@ -41,8 +41,7 @@ void solve() {
             if (!AdjentcMatrix[i][j]) { valid = false; break; }   
         }
     }
-    if (valid) std::cout << "Complete";
-    else std::cout << "not Complete";
+    std::cout << (valid)?"":"Not" << "Complete\n"; 
 } 
 
 int main() {
