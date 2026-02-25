@@ -1,0 +1,14 @@
+Załóżmy, że mamy Listę Sąsiedztwa grafu skierowanego,
+gdzie każdy wierzchołek przechowuje swoje krawędzie wychodzące.
+W jaki sposób możemy efektywnie znaleźć wszystkie krawędzie 
+wchodzące (in-degree edges) do wierzchołka u?
+
+przechodzimy przez wszyskie wierzchołki i bierzemy wszyskie sasiedzatwa i dla danego sasiedzwa w innej wektorze do wektra tego wierzchołka wrzucamy ten wierzchołek 
+z którego to przyszło 
+
+czyli jak mamy:
+
+vector<int> A;
+vector<int> New;
+
+New[j] = (i) if (A[i] == j)
