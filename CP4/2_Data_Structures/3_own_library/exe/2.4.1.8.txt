@@ -1,0 +1,16 @@
+Pomyśl o sytuacji/problemie, w którym użycie dwóch (lub więcej) 
+struktur danych grafu jednocześnie dla tego samego grafu może być użyteczne
+
+1. AM, AL -> mały graf, zadanie że mamy sprawdzić czy istnieje taka krawędz
+ jesli nie to dodajemy i tworzymy takom metodom nowy graf czyli graf dopełniony z podanych krawdzi
+
+wiecej pomysłów niemam
+
+/1/ /1/ / / /
+/1/ / / /1/ /
+/ / /1/1/ / / 
+
+/x/y/w/
+   .
+   .
+   .
