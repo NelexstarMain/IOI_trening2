@@ -29,10 +29,10 @@ void fast_io() {
 
 void solve() {
     string s; cin >> s;
+
     int n; cin >> n;
     int last = s[SIZE(s)-1] - 'a';
     vector<vector<string>> A(27);
-    
     for (int i=0; i<n; i++) {
         string curr; cin >> curr;
         A[curr[0]-'a'].PB(curr);
