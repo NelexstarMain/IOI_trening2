@@ -1,0 +1,7 @@
+Czy możemy uniknąć zapisu p[i] == i (pętli własnej), oznaczającego korzeń drzewa, aby graf struktury nie posiadał samo-wskazujących krawędzi?
+Pytanie: W tablicy p[] przechowujemy indeksy ojców (od 0 do N )
+Jaką inną wartość możemy wstawić do komórki p[korzen], żeby program wiedział, 
+że ten element jest na samym szczycie i nie ma już nad nim żadnego ojca?
+
+Mozemy stosować index -1 dla korzeni 
+albo -x gdzie x jest ilosciom elementów w zbiorze.
