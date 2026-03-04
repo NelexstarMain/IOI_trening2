@@ -1,0 +1,12 @@
+Zadanie używając tylko unionset(i, j) i findset(i)
+jak zrobić najniższe dzewo (ale jeden dodatkowy fakt w tym DSU podłanczamy dzewa niezależnie od rank).
+
+Krok pierwszy:
+
+podłanczamy wszyskie drzewa pokolei do pierwszego albo wybranego:
+
+unionset(wybrany, {reszta});
+
+Krok drugi:
+
+robimy findset(i) dla kazdego i od 0 do N;

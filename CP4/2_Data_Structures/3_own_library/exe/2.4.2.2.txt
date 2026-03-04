@@ -1,0 +1,17 @@
+1. Pytanie jak zrobic dzewo o randze log(2, n);
+
+musimy robić parami gdyż wtedy sie dodaje długosc 
+
+czyli:
+
+1>2 3>4 5>6 7>8 rank: 0+1 = 1
+
+1>3 5>7 rank: 1+1 = 2
+
+1>5 rank: 2+1 = 3
+
+3 = log(2, 8)
+
+2. Pytanie: czy mozna wieksze niż to 
+odp Nie poniewiaż po maksymalnie wykorzystuje to że dwa takie same to 
+jest +1
