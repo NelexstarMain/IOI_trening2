@@ -29,16 +29,15 @@ void fast_io() {
 
 struct UnionFind {
     private:
-        vector<int> p, rank, setsSizes;
-        nelek ty był
+        vector<int> p, rank, setsSizes ;
         int numsets;
     public:
-
+        vector<int> freeset;
         UnionFind(int n) {
             p.assign(n, 0); for (int i=0; i<n; i++) p[i] = i;
             rank.assign(n, 0);            
             setsSizes.assign(n, 1);
-            nelek tu był
+            freeset.assign(n, 1);
             numsets = n;
         }
 
@@ -46,32 +45,46 @@ struct UnionFind {
             // idziemy po rodzicu do góry dodajemy tez indexy pokolei do korzeniaj potem 
             // jak znajdziemy rodzica to wszyskie podłanczamy do korzenia
             if (m == p[m]) return p[m];
-            return p[m] = findSet(p[m]); // nelek tu był 
+            return p[m] = findSet(p[m]); 
         }
         bool sameSet(int i, int j) { return ( findSet(i) == findSet(j)); }
 
         void UnionSet(int i, int j) {
             int x = findSet(i), y = findSet(j); 
             if (x == y) return;
-            if (rank[x] > rank[y]) swap(x, y); // belek tu był
+            if (rank[x] > rank[y]) swap(x, y); 
             p[x] = y;
             setsSizes[y] += setsSizes[x];
-            rank[y] = std::max(rank[x]+1, rank[y]); // NELEK 
+            freeset[y] += freeset[x];
+            rank[y] = std::max(rank[x]+1, rank[y]); 
             numsets--;
         }
 };
 
 
 void solve() {
-    
+    int m, l; cin >> m >> l;
+    UnionFind UF(l+1);
+    for (int i=0; i<m; i++) {
+        int x, y; std::cin >> x >> y;
+        int root = UF.findSet(x);
+        if (UF.freeset[root] > 0) {
+            UF.UnionSet(x, y);
+            UF.freeset[UF.findSet(x)]--;
+            cout << "LADICA\n";
+        } else {
+            root = UF.findSet(y);
+            if (UF.freeset[root] > 0) {
+                UF.UnionSet(x, y);
+                UF.freeset[UF.findSet(y)]--;
+                cout << "LADICA\n";
+            } else cout << "SMECE\n";
+        }
+    }
 }
 
 int main() {
     fast_io();
-    int t = 1;
-    if(!(cin >> t)) return 0;
-    while (t--) {
-        solve();
-    }
+    solve();
     return 0;
 }
