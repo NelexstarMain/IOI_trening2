@@ -46,6 +46,8 @@ struct UnionFind {
         }
         bool sameSet(int i, int j) { return ( findSet(i) == findSet(j)); }
 
+        int getsize(int i) { return (setsSizes[findSet(i)]); }
+        
         void UnionSet(int i, int j) {
             int x = findSet(i), y = findSet(j); 
             if (x == y) return;
@@ -59,15 +61,21 @@ struct UnionFind {
 
 
 void solve() {
-    
+    UnionFind UF(2*10e5+1);
+    unordered_map<string, int> A;
+    int index = 0, n; cin >> n;
+    for (int i=0; i<n; i++) {
+        string x, y; cin >> x >> y;
+        if (A.find(x) == A.end()) A.insert({x, index++});
+        if (A.find(y) == A.end()) A.insert({y, index++});
+        UF.UnionSet(A[x], A[y]);
+        cout << UF.getsize(A[x]) << "\n";
+    }
 }
 
 int main() {
     fast_io();
-    int t = 1;
-    if(!(cin >> t)) return 0;
-    while (t--) {
-        solve();
-    }
+    int T; cin >> T;
+    while (T--) solve();
     return 0;
 }
