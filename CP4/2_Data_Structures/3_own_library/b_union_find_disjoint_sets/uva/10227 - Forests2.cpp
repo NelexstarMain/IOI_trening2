@@ -44,12 +44,6 @@ void solve() {
 
 int main() {
     fast_io();
-    int T; cin >> T;
-    int z = 0;
-    while (T--) {
-        if (z != 0) cout << "\n";
-        solve();
-        z++;
-    } 
+    solve();
     return 0;
 }
