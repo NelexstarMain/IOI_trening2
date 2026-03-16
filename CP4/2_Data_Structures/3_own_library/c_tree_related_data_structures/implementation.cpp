@@ -73,7 +73,7 @@ class FenwicTree {
         }
         ll select(ll k) {
             ll le = 1,  hi = SIZE(ft)-1;
-            for (int i=0; i<35; i++) {
+            for (int i=0; i<30; i++) {
                 ll mid = (le+hi)/2;
                 (rsq(mid) < k) ? (le = mid) : (hi = mid);
             }

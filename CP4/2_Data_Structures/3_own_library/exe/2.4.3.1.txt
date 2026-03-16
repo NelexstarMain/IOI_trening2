@@ -1,0 +1,19 @@
+Zadanie 2.4.3.1: Operację `select(k)` w Fenwick Tree można w rzeczywistości zaimplementować 
+w czasie O(log m), zamiast opisanego w tym rozdziale O(\log^2 m). Jak to zrobić?
+
+można zrobić zapomocom binary lifting czyli sprawdzamy ile sie miesci w całej liscie FT 2^n;
+
+i zaczynamy od tego 
+
+|-| |--| |----| |---------| |----------------| |+++|
+
+założmy że sie miesci 4 bo jest jest powiedzmy 35 elementów spradzamy czy tf[i+p]
+gdzie p to jest ta własnie najwieksza wielokrotnosc 2 czyli 32 sprawdzamy czy k > tf[i+p] jesli tak 
+to ucinamy całom reszte wczesniej czyli i += p; i zaczyna sie nie od poczatkó tylko od nowego poczatku a k -= tf[i+p] odcinamy całom reszte wczesniej
+
+|+++|
+
+mamy cos takiego p dzielimy na 2 czyli mamy teraz 16 niemiesci sie idzemy dopuki p niebedzie 2
+wtedy odcinamy dwa przednie i mamy ze ostatni element to jest nejmniejszy wiekszy od K;
+
+
