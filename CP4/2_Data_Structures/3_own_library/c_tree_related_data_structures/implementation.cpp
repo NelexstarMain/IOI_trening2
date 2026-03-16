@@ -72,12 +72,17 @@ class FenwicTree {
             }
         }
         ll select(ll k) {
-            ll le = 1,  hi = SIZE(ft)-1;
-            for (int i=0; i<30; i++) {
-                ll mid = (le+hi)/2;
-                (rsq(mid) < k) ? (le = mid) : (hi = mid);
+            int p = 1;
+            while (p*2 < SIZE(tf)) p*=2;
+            int i = 0;
+            while (p) {
+                if (i+p < SIZE(tf) && k > tf[i+p]) {
+                    i+=p;
+                    k-=tf[i];
+                }
+                p/=2;
             }
-            return hi;
+            return i+1;
         }
 };
 void solve() {
