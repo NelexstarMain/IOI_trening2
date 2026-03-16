@@ -76,13 +76,52 @@ class FenwicTree {
             while (p*2 < SIZE(tf)) p*=2;
             int i = 0;
             while (p) {
-                if (i+p < SIZE(tf) && k > tf[i+p]) {
+                if (i+p < SIZE(tf) && k > ft[i+p]) {
                     i+=p;
-                    k-=tf[i];
+                    k-=ft[i];
                 }
                 p/=2;
             }
             return i+1;
+        }
+};
+
+class FenwickTree2d {
+    private:
+        int M, N;
+        vector<vll> ft; 
+
+    public:
+        FenwickTree2d(int m, int n) : M(m), N(n) {
+            ft.assign(m + 1, vll(n + 1, 0));
+        }
+        void build(const vector<vll> &f) {
+            for (int i = 1; i <= M; i++) {
+                for (int j = 1; j <= N; j++) {
+                    update(i, j, f[i][j]);
+                }
+            }
+        }
+
+        void update(int r, int c, ll v) {
+            for (int i = r; i <= M; i += LSOne(i)) {
+                for (int j = c; j <= N; j += LSOne(j)) {
+                    ft[i][j] += v;
+                }
+            }
+        }
+
+        ll rsq(int r, int c) {
+            ll sum = 0;
+            for (int i = r; i > 0; i -= LSOne(i)) {
+                for (int j = c; j > 0; j -= LSOne(j)) {
+                    sum += ft[i][j];
+                }
+            }
+            return sum;
+        }
+        ll rsq(int r1, int c1, int r2, int c2) {
+            return rsq(r2, c2) - rsq(r1 - 1, c2) - rsq(r2, c1 - 1) + rsq(r1 - 1, c1 - 1);
         }
 };
 void solve() {
