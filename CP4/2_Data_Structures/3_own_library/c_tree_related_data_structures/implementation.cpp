@@ -148,11 +148,11 @@ class RURQ  {
         RURQ(int m) : rupq(RUPQ(m)), purq(FenwickTree(m)) {} 
         void range_update(int ui, int uj, ll v) {
             rupq.range_update(ui, uj, v);                
-            purq.update(ui, v*(ui-1));                   
+            purq.update(ui, v*ui);                   
             purq.update(uj+1, -v*uj);                    
         }
         ll rsq(int j) {
-            return rupq.point_query(j)*j -               
+            return rupq.point_query(j)*(j+1) -               
                 purq.rsq(j);                          
         }
         ll rsq(int i, int j) { return rsq(j) - rsq(i-1); } 
