@@ -31,11 +31,11 @@ void fast_io() {
     cin.tie(NULL);
 }
 
-class FenwicTree {
+class FenwickTree {
     private:
         vll ft;
     public:
-        FenwicTree(int m) {
+        FenwickTree(int m) {
             ft.assign(m+1, 0);
         }
         void build(const vll &f) {
@@ -48,9 +48,9 @@ class FenwicTree {
                 }
             }
         }
-        FenwicTree(const vll &f) { build(f); }
+        FenwickTree(const vll &f) { build(f); }
         
-        FenwicTree(int m, const vi &s) {
+        FenwickTree(int m, const vi &s) {
             vll f(m+1, 0);
             for (int x: s) {
                 f[x]++;
@@ -124,6 +124,23 @@ class FenwickTree2d {
             return rsq(r2, c2) - rsq(r1 - 1, c2) - rsq(r2, c1 - 1) + rsq(r1 - 1, c1 - 1);
         }
 };
+RUPQ {
+    private:
+        FenwickTree ft;
+    public:
+        RUPQ(int m) : ft(FenwickTree(m)) {}
+        void update(int i, int v) {
+            ft.update(i, v);
+        }
+        void update(int i, int j, int v) {
+            ft.update(i, v);
+            ft.update(j+1, -v);
+        }
+        ll query(int i) {
+            ft.rsq(i);
+        }
+}
+
 void solve() {
     
 }
