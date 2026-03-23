@@ -75,7 +75,7 @@ class SegmentTree {
 
         void update(int p, int L, int R, int i, int j, int val) {
             propagate(p, L, R);
-            if (j > i) return;
+            if (i > j) return;
             if ((i<=L) && (R<=j)) {
                 lazy[p] = val;
                 propagate(p, L, R);
