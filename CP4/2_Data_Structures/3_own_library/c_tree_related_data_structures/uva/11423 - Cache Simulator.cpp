@@ -1,5 +1,9 @@
 #include <bits/stdc++.h>
 
+// Za wolne podejscie nieprzechodzi testów 
+// a jest to spowodowane złym wyborem struktór danych 
+// 60%
+
 using namespace std;
 using ll = long long;
 using ull = unsigned long long;
