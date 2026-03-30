@@ -101,7 +101,37 @@ class SegmentTree {
 };
 
 void solve() {
-    //nothing
+    int N, M; cin >> N;
+    if (N == 0) {
+        cin >> M; 
+        if (M == 0) return;
+    }
+    map<int, int> A;
+    vi B;
+    for (int i=0; i<N; i++) {
+        int X, Y; cin >> X >> Y;
+        A[X] = i; B.PB(Y);
+    }
+    SegmentTree ST(B);
+    cin >> M; 
+    for (int i=0; i<M; i++) {
+        int S, E; 
+        cin >> S >> E;
+        int V = INF;
+        if (A.find(S) == A.end() && A.find(E) == A.end()) {
+            cout << "maybe\n"; continue;
+        }
+
+        if (A.find(S) != A.end()) V = min(V, ST.RMQ(A[S]));
+        if (A.find(E) != A.end()) V = min(V, ST.RMQ(A[E]));
+
+        auto it_start = A.lower_bound(S);
+        auto it_end = A.upper_bound(E);
+        int idx_S = it_start->second; 
+        auto it_last_valid = prev(it_end);
+        int idx_E = it_last_valid->second;
+        int max_opad = ST.RMQ(idx_S, idx_E);
+        if (max_opad > V) cout << "false";
 }
 
 int main() {
@@ -109,3 +139,5 @@ int main() {
     solve();
     return 0;
 }
+
+
