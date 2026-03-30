@@ -37,7 +37,7 @@ class SegmentTree {
         int conquer(int a, int b) {
             if (a == -1) return b;
             if (b == -1) return a;
-            return min(a, b);
+            return max(a, b);
         }
 
         void build(int p, int L, int R) {
@@ -101,37 +101,52 @@ class SegmentTree {
 };
 
 void solve() {
-    int N, M; cin >> N;
-    if (N == 0) {
-        cin >> M; 
-        if (M == 0) return;
-    }
-    map<int, int> A;
-    vi B;
-    for (int i=0; i<N; i++) {
-        int X, Y; cin >> X >> Y;
-        A[X] = i; B.PB(Y);
-    }
-    SegmentTree ST(B);
-    cin >> M; 
-    for (int i=0; i<M; i++) {
-        int S, E; 
-        cin >> S >> E;
-        int V = INF;
-        if (A.find(S) == A.end() && A.find(E) == A.end()) {
-            cout << "maybe\n"; continue;
+    int N, M;
+    bool first = true;
+    while (cin >> N && N > 0) {
+        if (!first) cout << "\n";
+        first = false;
+        map<int, int> A;
+        vi B;
+        for (int i=0; i<N; i++) {
+            int X, Y; cin >> X >> Y;
+            A[X] = i; B.PB(Y);
         }
-
-        if (A.find(S) != A.end()) V = min(V, ST.RMQ(A[S]));
-        if (A.find(E) != A.end()) V = min(V, ST.RMQ(A[E]));
-
-        auto it_start = A.lower_bound(S);
-        auto it_end = A.upper_bound(E);
-        int idx_S = it_start->second; 
-        auto it_last_valid = prev(it_end);
-        int idx_E = it_last_valid->second;
-        int max_opad = ST.RMQ(idx_S, idx_E);
-        if (max_opad > V) cout << "false";
+        SegmentTree ST(B);
+        cin >> M; 
+        for (int i=0; i<M; i++) {
+            int S, E; 
+            cin >> S >> E;
+            int V = INF;
+            if (A.find(S) == A.end() && A.find(E) == A.end()) {
+                cout << "maybe\n"; continue;
+            } else if (A.find(S) == A.end()) {
+                auto it = A.lower_bound(S);
+                int mx = ST.RMQ(it->second, A[E]-1);
+                if (mx < ST.RMQ(A[E], A[E])) cout << "maybe\n";
+                else cout << "false\n";
+            } else if (A.find(E) == A.end()) {
+                auto it = A.lower_bound(E);
+                auto bit = it;
+                bit = prev(it);
+                // cout << A[S] << "\n" << ST.RMQ(A[S]+1, bit->second) << "\n" << bit->second << "\n";
+                if (bit->second == A[S]) cout << "maybe\n";
+                else {
+                    int mx = ST.RMQ(A[S]+1, bit->second);
+                    if (mx < ST.RMQ(A[S], A[S])) cout << "maybe\n";
+                    else cout << "false\n";
+                }
+            } else {
+                int va = ST.RMQ(A[S], A[S]), vb = ST.RMQ(A[E], A[E]); 
+                int mx = ST.RMQ(A[S]+1, A[E]-1);
+                if (mx < vb && vb <= va) {
+                    if (E-S == A[E]-A[S]) cout << "true\n";
+                    else cout << "maybe\n";
+                } else cout << "false\n";
+            }
+    }
+    }
+    
 }
 
 int main() {
