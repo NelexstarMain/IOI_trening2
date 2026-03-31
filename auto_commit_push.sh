@@ -1,79 +1,54 @@
 #!/bin/bash
 set -e 
 
-# =========================================================
-# 1. GENEROWANIE KOLOROWEGO DRZEWA Z KRESKAMI (MARKDOWN)
-# =========================================================
 echo "🌳 Aktualizowanie struktury folderu CP4..."
-
 OUTPUT_FILE="CP4_STRUCTURE.md"
 
-# Tworzymy ładny nagłówek z legendą
 cat << 'EOF' > "$OUTPUT_FILE"
+# CP4
 
-📂 **Folder** | 🔵 C++ | 🟡 Python | 📝 Other
+<div style="font-family: monospace; line-height: 1.5;">
 
-<pre>
+<b>📂 CP4</b><br>
 EOF
 
-# Funkcja rekurencyjna
-generate_tree() {
+generate_tree_html() {
     local dir="$1"
     local prefix="$2"
-    
-    # Bezpieczne pobieranie plików
-    local items=()
-    for item in "$dir"/*; do
-        [ -e "$item" ] && items+=("$item")
-    done
-    
+    local items=("$dir"/*)
     local count=${#items[@]}
-    [ "$count" -eq 0 ] && return
-    
     local index=0
+    
     for item in "${items[@]}"; do
-        # Poprawka: to wyrażenie nie wywali skryptu przy set -e
+        [ ! -e "$item" ] && continue
         index=$((index + 1))
-        
         local base_name=$(basename "$item")
-        
-        # Ignoruj pliki systemowe/ukryte
         [[ "$base_name" == .* ]] && continue
         
-        local is_last=0
-        [ "$index" -eq "$count" ] && is_last=1
+        local branch="├── "
+        [ "$index" -eq "$count" ] && branch="└── "
         
-        local branch="├──"
-        local next_prefix="│   "
-        if [ "$is_last" -eq 1 ]; then
-            branch="└──"
-            next_prefix="    "
-        fi
+        # Tworzymy wcięcie za pomocą spacji niełamiących (HTML)
+        local indent="${prefix}${branch}"
         
         if [ -d "$item" ]; then
-            echo "${prefix}${branch} 📂 **${base_name}**  " >> "$OUTPUT_FILE"
-            generate_tree "$item" "${prefix}${next_prefix}"
-        elif [ -f "$item" ]; then
-            if [[ "$base_name" == *.cpp ]]; then
-                echo "${prefix}${branch} 🔵 \`${base_name}\`  " >> "$OUTPUT_FILE"
-            elif [[ "$base_name" == *.py ]]; then
-                echo "${prefix}${branch} 🟡 \`${base_name}\`  " >> "$OUTPUT_FILE"
-            else
-                echo "${prefix}${branch} 📝 \`${base_name}\`  " >> "$OUTPUT_FILE"
-            fi
+            echo "${indent}📂 <b>${base_name}</b><br>" >> "$OUTPUT_FILE"
+            generate_tree_html "$item" "${prefix}&nbsp;&nbsp;&nbsp;&nbsp;"
+        else
+            local icon="📝"
+            local color="gray"
+            if [[ "$base_name" == *.cpp ]]; then icon="🔵"; color="blue"; fi
+            if [[ "$base_name" == *.py ]]; then icon="🟡"; color="gold"; fi
+            
+            echo "${indent}${icon} <span style=\"color:${color}\">${base_name}</span><br>" >> "$OUTPUT_FILE"
         fi
     done
 }
 
-if [ -d "CP4" ]; then
-    echo "📂 **CP4**  " >> "$OUTPUT_FILE"
-    generate_tree "CP4" ""
-    echo "✅ Zaktualizowano $OUTPUT_FILE!"
-else
-    echo "❌ Błąd: Folder CP4 nie istnieje w tym miejscu!"
-fi
-echo "</pre>" >> "$OUTPUT_FILE"
-# =========================================================
+generate_tree_html "CP4" ""
+echo "</div>" >> "$OUTPUT_FILE"
+
+echo "✅ Zaktualizowano!"
 
 RANDOM_STRING=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15)
 
