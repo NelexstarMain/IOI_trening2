@@ -27,29 +27,26 @@ void fast_io() {
     cin.tie(NULL);
 }
 
+bool sorted(std::vector<int> a) {
+    bool valid = true;
+    for (int i = 0; i < 5; i++) {
+        if (a[i] != i+1) valid = false;
+    }
+    return valid;
+}
+
 void solve() {
-    std::string line; 
-    while (getline(std::cin, line) && !line.empty()) {
-        std::vector<int> ch(3005, 0);
-        std::stringstream ss(line);
-        int b; ss >> b;
-        ss >> b;
-        int co = 1;
-        int c; 
-        while (ss >> c) {
-            ch[std::abs(c-b)]++;
-            b = c;
-            co++;
-        } 
-        bool valid = true;
-        // for (int i = 0; i < 10; i++) std::cout << ch[i] << " ";
-        for (int i = 1; i < co; i++) {
-            if (ch[i] != 1) {
-                if (valid) std::cout << "Not jolly\n";
-                valid = false;
-            } 
+    std::vector<int> a(5); for (int& x: a) std::cin >> x;
+    while (!sorted(a)) {
+        for (int i = 1; i < 5; i++) {
+            if (a[i] < a[i-1]) {
+                int f=a[i-1], s=a[i];
+                a[i-1] = s;
+                a[i] = f;
+                for (int x: a) std::cout << x << " ";
+                std::cout << "\n";
+            }
         }
-        if (valid) std::cout << "Jolly\n";
     }
 }
 
