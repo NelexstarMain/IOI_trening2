@@ -1,41 +1,79 @@
 #!/bin/bash
 set -e 
 
-# ==========================================
-# 1. GENEROWANIE DRZEWA TYLKO DLA FOLDERU CP4
-# ==========================================
+# =========================================================
+# 1. GENEROWANIE KOLOROWEGO DRZEWA Z KRESKAMI (MARKDOWN)
+# =========================================================
 echo "🌳 Aktualizowanie struktury folderu CP4..."
 
-# Tworzymy nagłówek pliku Markdown
-cat << 'EOF' > CP4_STRUCTURE.md
-# 📖 Struktura zadań - Competitive Programming 4 (CP4)
+OUTPUT_FILE="CP4_STRUCTURE.md"
 
-Poniżej znajduje się aktualne, automatycznie generowane drzewo rozwiązanych zadań przypisanych do poszczególnych rozdziałów książki CP4:
+# Tworzymy ładny nagłówek z legendą
+cat << 'EOF' > "$OUTPUT_FILE"
 
-```text
+📂 **Folder** | 🔵 C++ | 🟡 Python | 📝 Other
+
+<pre>
 EOF
 
-# Próba użycia komendy tree (sortuje foldery na samej górze)
-if command -v tree &> /dev/null; then
-    tree CP4 --dirsfirst >> CP4_STRUCTURE.md
-else
-    # Automatyczny fallback (zastępstwo) jeśli nie masz 'tree' na Windowsie
-    # Rysuje ładne drzewo za pomocą wbudowanych narzędzi Git Bash
-    find CP4 | sort | awk -F'/' '{
-        depth = NF - 1;
-        if (depth == 0) { print $1; }
-        else {
-            prefix = "";
-            for (i = 1; i < depth; i++) { prefix = prefix "│   "; }
-            print prefix "├── " $NF;
-        }
-    }' >> CP4_STRUCTURE.md
-fi
+# Funkcja rekurencyjna
+generate_tree() {
+    local dir="$1"
+    local prefix="$2"
+    
+    # Bezpieczne pobieranie plików
+    local items=()
+    for item in "$dir"/*; do
+        [ -e "$item" ] && items+=("$item")
+    done
+    
+    local count=${#items[@]}
+    [ "$count" -eq 0 ] && return
+    
+    local index=0
+    for item in "${items[@]}"; do
+        # Poprawka: to wyrażenie nie wywali skryptu przy set -e
+        index=$((index + 1))
+        
+        local base_name=$(basename "$item")
+        
+        # Ignoruj pliki systemowe/ukryte
+        [[ "$base_name" == .* ]] && continue
+        
+        local is_last=0
+        [ "$index" -eq "$count" ] && is_last=1
+        
+        local branch="├──"
+        local next_prefix="│   "
+        if [ "$is_last" -eq 1 ]; then
+            branch="└──"
+            next_prefix="    "
+        fi
+        
+        if [ -d "$item" ]; then
+            echo "${prefix}${branch} 📂 **${base_name}**  " >> "$OUTPUT_FILE"
+            generate_tree "$item" "${prefix}${next_prefix}"
+        elif [ -f "$item" ]; then
+            if [[ "$base_name" == *.cpp ]]; then
+                echo "${prefix}${branch} 🔵 \`${base_name}\`  " >> "$OUTPUT_FILE"
+            elif [[ "$base_name" == *.py ]]; then
+                echo "${prefix}${branch} 🟡 \`${base_name}\`  " >> "$OUTPUT_FILE"
+            else
+                echo "${prefix}${branch} 📝 \`${base_name}\`  " >> "$OUTPUT_FILE"
+            fi
+        fi
+    done
+}
 
-# Zamykamy blok kodu Markdown
-echo '```' >> CP4_STRUCTURE.md
-echo "✅ Zaktualizowano CP4_STRUCTURE.md"
-# ==========================================
+if [ -d "CP4" ]; then
+    echo "📂 **CP4**  " >> "$OUTPUT_FILE"
+    generate_tree "CP4" ""
+    echo "✅ Zaktualizowano $OUTPUT_FILE!"
+else
+    echo "❌ Błąd: Folder CP4 nie istnieje w tym miejscu!"
+fi
+echo "</pre>" >> "$OUTPUT_FILE"
+# =========================================================
 
 RANDOM_STRING=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15)
 
@@ -47,7 +85,7 @@ if [ -z "$(git status --porcelain)" ]; then
     exit 0
 fi
 
-echo "$RANDOM_STRING"
+echo "Generowanie commitu: $RANDOM_STRING"
 git commit -m "$RANDOM_STRING"
 
 echo "(Pull)..."
