@@ -471,6 +471,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 📝 <span style="color:gray">2.4.3.1.txt</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 🔵 <span style="color:blue">2.4.4.3.cpp</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 🔵 <span style="color:blue">2.4.4.4.cpp</span><br>
+├── 📂 <b>3_Problem_Solving_Paradigms</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;└── 📂 <b>1_Complete_Search</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 📂 <b>exe</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 📂 <b>uva</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 🔵 <span style="color:blue">725 - Division.cpp</span><br>
 └── 📂 <b>Exercises</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── 🔵 <span style="color:blue">01.cpp</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── 🔵 <span style="color:blue">02.cpp</span><br>
