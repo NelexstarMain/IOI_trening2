@@ -7,7 +7,7 @@ OUTPUT_FILE="CP4_STRUCTURE.md"
 cat << 'EOF' > "$OUTPUT_FILE"
 # CP4
 
-<div style="font-family: monospace; line-height: 1.5;">
+<div style="font-family: monospace; line-height: 1.4;">
 
 <b>📂 CP4</b><br>
 EOF
