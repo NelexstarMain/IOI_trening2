@@ -27,37 +27,40 @@ void fast_io() {
     cin.tie(NULL);
 }
 
-
 void solve() {
     int N, M;
     while (cin >> N >> M && (N != 0 || M != 0)) {
-        vector<vector<int>> AM(N, vector<int>(N, 0));
-        for (int i=0; i<M; i++) {
-            int A, B, C; cin >> A >> B >> C;
-            AM[A][B] = AM[B][A] = C;
+        vector<vector<int>> min_dist(N, vector<int>(N, 1));
+        vector<vector<int>> max_dist(N, vector<int>(N, N + 1));
+
+        for (int i = 0; i < M; i++) {
+            int A, B, C; 
+            cin >> A >> B >> C;
+            if (C > 0) max_dist[A][B] = max_dist[B][A] = min(max_dist[A][B], C);
+            else if (C < 0) min_dist[A][B] = min_dist[B][A] = max(min_dist[A][B], -C);
         }
-        vector<int> V; for (int i=0; i<N; i++) V.PB(i);
+
+        vector<int> V; 
+        for (int i = 0; i < N; i++) V.PB(i);
+        
         int count = 0;
         do {
-            // for (int x: V) cout << x << " ";
-            // cout << "\n";
             bool valid = true;
-            for (int i=0; i<N; i++) {
-                for (int j=i+1; j<N; j++) {
-                    if (i==j) continue;
+            for (int i = 0; i < N; i++) {
+                for (int j = i + 1; j < N; j++) {
                     int a = V[i], b = V[j];
-                    if (AM[a][b] != 0) {
-                        if (AM[a][b] < 0 && abs(j-i) < abs(AM[a][b])) valid = false;
-                        if (AM[a][b] > 0 && abs(j-i) > abs(AM[a][b])) valid = false;
+                    int dist = abs(j - i); 
+                    if (dist < min_dist[a][b] || dist > max_dist[a][b]) {
+                        valid = false;
+                        break; 
                     }
                 }
+                if (!valid) break; 
             }
             if (valid) count++;
-            // cout << count << "\n";
         } while (next_permutation(ALL(V)));
         cout << count << "\n";
     }
-
 }
 
 int main() {
