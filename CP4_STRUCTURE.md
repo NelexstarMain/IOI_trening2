@@ -475,6 +475,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;└── 📂 <b>1_Complete_Search</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 📂 <b>exe</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 📂 <b>uva</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── 🔵 <span style="color:blue">441 - Lotto.cpp</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── 🔵 <span style="color:blue">725 - Division.cpp</span><br>
 └── 📂 <b>Exercises</b><br>
 &nbsp;&nbsp;&nbsp;&nbsp;├── 🔵 <span style="color:blue">01.cpp</span><br>
