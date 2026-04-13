@@ -27,40 +27,15 @@ void fast_io() {
     cin.tie(NULL);
 }
 
-
 void solve(int z) {
-    cout << "Case " << z << ":";
-    vector<int> A(10); for (int &x: A) cin >> x;
-    for (int i=0; i<10; i++) {
-        for (int j=0; j<10; j++) {
-            for (int k=0; k<10; k++) {
-                if (i==j || i==k || j==k) continue;
-                int a=(A[i]-A[j]+A[k])/2;
-                for (int z=0; z<10; z++) {
-                    
-                    if (z==i || z==j || z==k) continue;
-                    vector<int> R={a, A[i]-a, A[j]-a, A[k]-a, A[z]-a};
-                    vector<int> Check;
-                    for (int x=0; x<5; x++) {
-                        for (int y=x+1; y<5; y++) {
-
-                            Check.PB(R[x]+R[y]);
-                        }
-                    }
-                    sort(ALL(Check));
-                    if (Check==A) {
-                        sort(ALL(R));
-                        for (int x: R) cout << " " << x;
-                        cout << "\n";
-                        return;
-                    } 
-                }
-            }
-        }
-    }
-        
+    int S=0;
+    cout << "Case " << z << ": ";
+    vector<int> A(10); for (int &x: A) { cin >> x; S+=x; };
+    int x3=(S/4)-A[0]-A[9];
+    if (A[1]==(A[8]-A[9]+A[2])) cout << A[1]-x3 << " " << A[0]-A[1]+x3 << " " << x3 << " " << x3-A[8]+A[9] << " " << A[8]-x3;
+    else cout << A[1]-x3 << " " << A[2]-x3 << " " << x3 << " " <<  A[9]-A[8]+x3 << " " << A[8]-x3;
+    cout << "\n";
 }
-
 int main() {
     fast_io();
     int T; cin >> T;
