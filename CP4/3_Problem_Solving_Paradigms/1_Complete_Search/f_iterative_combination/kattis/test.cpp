@@ -41,7 +41,7 @@ void solve() {
     for (int i=0; i<M; i++) {
         int a, b; cin >> a >> b;
         a--; b--;
-        int mask=(1<<a)+(1<<b);
+        int mask= (1<<a) | (1<<b);
         Mask.PB(mask);
     }
     int Nu=(1<<(N))-1, Co=0;
