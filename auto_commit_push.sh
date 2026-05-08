@@ -1,35 +1,41 @@
 #!/bin/bash
 set -e 
 
-# Zabezpieczenie przed błędami, gdy folder jest pusty
+# Zabezpieczenie przed pustymi folderami
 shopt -s nullglob
 
-echo "📟 Aktualizowanie struktury folderu CP4 w stylu Retro HTML..."
 OUTPUT_FILE="CP4_STRUCTURE.md"
+# Upewnij się, że skrypt uruchamiasz w folderze nadrzędnym wobec CP4
 TARGET_DIR="CP4"
 
+echo "📟 GENERATING RETRO SYSTEM REPORT..."
+
 # --- LICZENIE STATYSTYK CAŁKOWITYCH ---
-# -iname ignoruje wielkość liter (złapie Kattis, uva, UVa, KATTIS)
 TOTAL_KATTIS=$(find "$TARGET_DIR" -type d -iname "kattis" -exec find {} -type f ! -name ".*" \; 2>/dev/null | wc -l | xargs)
 TOTAL_UVA=$(find "$TARGET_DIR" -type d -iname "uva" -exec find {} -type f ! -name ".*" \; 2>/dev/null | wc -l | xargs)
 TOTAL_SUM=$((TOTAL_KATTIS + TOTAL_UVA))
 
-cat << 'EOF' > "$OUTPUT_FILE"
-<div style="background-color: #050505; color: #00ff00; padding: 20px; font-family: 'Courier New', Courier, monospace; border: 2px solid #00ff00; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 0, 0.4); line-height: 1.4;">
-<div style="white-space: pre; color: #00ff00; font-weight: bold; margin-bottom: 20px;">
+# Nagłówek HTML z kontenerem retro
+cat << EOF > "$OUTPUT_FILE"
+
+<div style="background-color: #050505; color: #00ff00; padding: 15px; border: 1px solid #00ff00; font-family: monospace;">
+<pre style="background: transparent; color: #00ff00; border: none; padding: 0; margin: 0; line-height: 1.2;">
   _   _   _   _  
  / \ / \ / \ / \ 
 ( C | P | 4 | )
- \_/ \_/ \_/ \_/[ UNIT: ROOT_DIRECTORY ]
- [ ACCESS: GRANTED ]
-</div>
-<hr style="border: 0; border-top: 1px dashed #00ff00; margin: 15px 0;">
-<b>[DIR] CP4</b><br>
+ \_/ \_/ \_/ \_/ 
+
+ [ UNIT: ROOT_SCANNER ]
+ [ STATUS: GRANTED ]
+ -------------------------------------------
 EOF
 
-generate_tree_html() {
+# Funkcja generująca drzewo
+generate_tree() {
     local dir="$1"
     local prefix="$2"
+    
+    # Pobieramy elementy
     local items=("$dir"/*)
     local count=${#items[@]}
     local index=0
@@ -39,78 +45,69 @@ generate_tree_html() {
         index=$((index + 1))
         local base_name=$(basename "$item")
         
-        # Ignoruj pliki ukryte (zaczynające się od kropki)
+        # Ignoruj ukryte
         [[ "$base_name" == .* ]] && continue
         
         local branch="├── "
-        [ "$index" -eq "$count" ] && branch="└── "
-        
-        local indent="${prefix}${branch}"
+        local next_prefix="${prefix}│   "
+        if [ "$index" -eq "$count" ]; then
+            branch="└── "
+            next_prefix="${prefix}    "
+        fi
         
         if [ -d "$item" ]; then
             local folder_info=""
-            # Konwersja na małe litery, by łatwo sprawdzić nazwę
             local lower_name=$(echo "$base_name" | tr '[:upper:]' '[:lower:]')
             
+            # Zliczanie plików wewnątrz folderu kattis/uva
             if [[ "$lower_name" == "kattis" || "$lower_name" == "uva" ]]; then
-                # Szukamy plików wewnątrz tego konkretnego folderu
+                # Policz pliki tylko w tym konkretnym folderze (i podfolderach)
                 local sub_count=$(find "$item" -type f ! -name ".*" | wc -l | xargs)
-                folder_info=" <span style='color: #ffffff; text-shadow: 0 0 5px #fff;'>[FILES: ${sub_count}]</span>"
+                folder_info=" [FILES: ${sub_count}]"
             fi
             
-            echo "${indent}<span style='color: #00ff00;'>[DIR]</span> <b>${base_name}</b>${folder_info}<br>" >> "$OUTPUT_FILE"
-            generate_tree_html "$item" "${prefix}&nbsp;&nbsp;&nbsp;&nbsp;"
-        else
-            local ext="[FILE]"
-            if [[ "$base_name" == *.cpp ]]; then ext="[CPP]"; fi
-            if [[ "$base_name" == *.py ]]; then ext="[PY_]"; fi
+            # Zapisujemy do pliku (DIR)
+            echo "${prefix}${branch}[DIR] ${base_name}${folder_info}" >> "$OUTPUT_FILE"
             
-            echo "${indent}<span style='color: #00aa00;'>${ext}</span> <span style='color: #00aa00;'>${base_name}</span><br>" >> "$OUTPUT_FILE"
+            # Rekurencja
+            generate_tree "$item" "$next_prefix"
+        else
+            # Rozpoznawanie typu pliku
+            local type="[FILE]"
+            if [[ "$base_name" == *.cpp ]]; then type="[CPP ]"; fi
+            if [[ "$base_name" == *.py ]]; then type="[PY_ ]"; fi
+            
+            echo "${prefix}${branch}${type} ${base_name}" >> "$OUTPUT_FILE"
         fi
     done
 }
 
-generate_tree_html "$TARGET_DIR" ""
+# Generowanie struktury (zaczynamy od folderu CP4)
+echo "CP4" >> "$OUTPUT_FILE"
+generate_tree "$TARGET_DIR" ""
 
-# Dopisywanie podsumowania na dole
+# Zamknięcie tagu <pre> i dodanie podsumowania
 cat << EOF >> "$OUTPUT_FILE"
-<hr style="border: 0; border-top: 1px dashed #00ff00; margin: 15px 0;">
-<div style="white-space: pre; color: #00ff00; font-weight: bold;">
-&gt;&gt; DATABASE SUMMARY
-&gt;&gt; ---------------------------
-&gt;&gt; KATTIS_ENTRIES: $TOTAL_KATTIS
-&gt;&gt; UVA_ENTRIES:    $TOTAL_UVA
-&gt;&gt; ---------------------------
-&gt;&gt; TOTAL_RECORDS:  $TOTAL_SUM
-&gt;&gt; ---------------------------
-&gt;&gt; STATUS: ALL_FILES_SYNCED
-</div>
-<div style="text-align: center; font-size: 0.8em; margin-top: 20px; letter-spacing: 2px;">
---- END OF DATA TRANSMISSION ---
-</div>
+
+ -------------------------------------------
+ >> DATABASE SUMMARY
+ >> KATTIS: $TOTAL_KATTIS
+ >> UVA:    $TOTAL_UVA
+ >> TOTAL:  $TOTAL_SUM
+ >> STATUS: ALL_SYSTEMS_GO
+ -------------------------------------------
+ [ END OF TRANSMISSION ]
+</pre>
 </div>
 EOF
 
-echo "✅ Zaktualizowano strukturę MD!"
-
-# --- GIT OPERATIONS ---
+echo "✅ Gotowe! Plik $OUTPUT_FILE został wygenerowany."
 RANDOM_STRING=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15)
-
-echo "--- START ---"
 git add -A
-
 if [ -z "$(git status --porcelain)" ]; then
-    echo "⚠️ Brak zmian do zatwierdzenia. Kończę."
+    echo "⚠️ Brak zmian."
     exit 0
 fi
-
-echo "Generowanie commitu: $RANDOM_STRING"
-git commit -m "$RANDOM_STRING"
-
-echo "(Pull)..."
+git commit -m "update: $RANDOM_STRING"
 git pull --rebase --autostash
-
-echo "(Push)..."
 git push -u origin HEAD
-
-echo "--- READY ---"
