@@ -1,20 +1,41 @@
 #!/bin/bash
 set -e 
 
-echo "🌳 Aktualizowanie struktury folderu CP4..."
 OUTPUT_FILE="CP4_STRUCTURE.md"
+TARGET_DIR="CP4"
 
-cat << 'EOF' > "$OUTPUT_FILE"
-# CP4
+echo ">> INITIALIZING RETRO SCANNER..."
 
-<div style="font-family: monospace; line-height: 1.4;">
+# --- LICZENIE STATYSTYK ---
+TOTAL_KATTIS=$(find "$TARGET_DIR" -type d -name "kattis" -exec find {} -type f ! -name ".*" \; | wc -l | xargs)
+TOTAL_UVA=$(find "$TARGET_DIR" -type d -name "uva" -exec find {} -type f ! -name ".*" \; | wc -l | xargs)
+TOTAL_SUM=$((TOTAL_KATTIS + TOTAL_UVA))
 
-<b>📂 CP4</b><br>
+cat << EOF > "$OUTPUT_FILE"
+# CP4 STRUCTURE REPORT
+
+<div style="background-color: #050505; color: #00ff00; padding: 25px; font-family: 'Courier New', monospace; border: 1px solid #00ff00; line-height: 1.1; text-transform: uppercase;">
+
+<pre style="color: #00ff00; background: transparent; border: none; font-weight: bold; line-height: 1;">
+  _   _   _   _  
+ / \ / \ / \ / \ 
+( C | P | 4 | )
+ \_/ \_/ \_/ \_/ 
+
+ [ UNIT: ROOT_DIRECTORY ]
+ [ SECTOR: $(date '+%Y/%m/%d') ]
+ [ ACCESS: GRANTED ]
+</pre>
+
+<hr style="border: 0; border-top: 1px solid #00ff00; margin: 20px 0;">
+
+[DIR] CP4<br>
 EOF
 
 generate_tree_html() {
     local dir="$1"
     local prefix="$2"
+    
     local items=("$dir"/*)
     local count=${#items[@]}
     local index=0
@@ -25,48 +46,71 @@ generate_tree_html() {
         local base_name=$(basename "$item")
         [[ "$base_name" == .* ]] && continue
         
-        local branch="├── "
-        [ "$index" -eq "$count" ] && branch="└── "
+        local branch="|-- "
+        [ "$index" -eq "$count" ] && branch="\`— "
         
-        # Tworzymy wcięcie za pomocą spacji niełamiących (HTML)
         local indent="${prefix}${branch}"
         
         if [ -d "$item" ]; then
-            echo "${indent}📂 <b>${base_name}</b><br>" >> "$OUTPUT_FILE"
-            generate_tree_html "$item" "${prefix}&nbsp;&nbsp;&nbsp;&nbsp;"
-        else
-            local icon="📝"
-            local color="gray"
-            if [[ "$base_name" == *.cpp ]]; then icon="🔵"; color="blue"; fi
-            if [[ "$base_name" == *.py ]]; then icon="🟡"; color="gold"; fi
+            # Logika zliczania dla folderów
+            local folder_info=""
+            if [[ "$base_name" == "kattis" || "$base_name" == "uva" ]]; then
+                local sub_count=$(find "$item" -type f ! -name ".*" | wc -l | xargs)
+                folder_info=" [FILES: ${sub_count}]"
+            fi
             
-            echo "${indent}${icon} <span style=\"color:${color}\">${base_name}</span><br>" >> "$OUTPUT_FILE"
+            echo "${indent}[DIR] <b>${base_name}</b>${folder_info}<br>" >> "$OUTPUT_FILE"
+            generate_tree_html "$item" "${prefix}|&nbsp;&nbsp;&nbsp;"
+        else
+            # Wyświetlanie plików bez emotek
+            local ext="[EXE]"
+            if [[ "$base_name" == *.cpp ]]; then ext="[CPP]"; fi
+            if [[ "$base_name" == *.py ]]; then ext="[PY ]"; fi
+            
+            echo "${indent}${ext} ${base_name}<br>" >> "$OUTPUT_FILE"
         fi
     done
 }
 
-generate_tree_html "CP4" ""
-echo "</div>" >> "$OUTPUT_FILE"
+generate_tree_html "$TARGET_DIR" ""
 
-echo "✅ Zaktualizowano!"
+cat << EOF >> "$OUTPUT_FILE"
 
+<hr style="border: 0; border-top: 1px solid #00ff00; margin: 20px 0;">
+
+<pre style="color: #00ff00; background: transparent; border: none; font-weight: bold;">
+>> DATABASE SUMMARY
+>> ---------------------------
+>> KATTIS_ENTRIES: $TOTAL_KATTIS
+>> UVA_ENTRIES:    $TOTAL_UVA
+>> ---------------------------
+>> TOTAL_RECORDS:  $TOTAL_SUM
+>> ---------------------------
+>> STATUS: ALL_FILES_SYNCED
+</pre>
+
+<div style="text-align: center; font-size: 0.7em; letter-spacing: 2px; margin-top: 20px;">
+--- END OF DATA TRANSMISSION ---
+</div>
+
+</div>
+EOF
+
+echo ">> SCAN COMPLETE."
+
+# --- GIT OPERATIONS ---
 RANDOM_STRING=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15)
 
-echo "--- START ---"
+echo ">> SYNCING WITH REMOTE SERVER..."
 git add -A
 
 if [ -z "$(git status --porcelain)" ]; then
-    echo "⚠️ Brak zmian do zatwierdzenia. Kończę."
+    echo ">> NO CHANGES DETECTED. ABORTING."
     exit 0
 fi
 
-echo "Generowanie commitu: $RANDOM_STRING"
-git commit -m "$RANDOM_STRING"
-
-echo "(Pull)..."
+git commit -m "SYS_UPDATE: $RANDOM_STRING"
 git pull --rebase --autostash
-
-echo "(Push)..."
 git push -u origin HEAD
 
-echo "--- READY ---"
+echo ">> SYSTEM READY."
