@@ -565,10 +565,12 @@ CP4
 │       │       ├── [CPP ] 10346 - Peter's Smokes.cpp
 │       │       └── [CPP ] 1225 - Digit Counting.cpp
 │       └── [DIR] i_mathematical_simulation_hard
-│           └── [DIR] kattis [FILES: 3]
-│               ├── [CPP ] crackingrsa.cpp
-│               ├── [CPP ] fallingmugs.cpp
-│               └── [CPP ] thanosthehero.cpp
+│           ├── [DIR] kattis [FILES: 3]
+│           │   ├── [CPP ] crackingrsa.cpp
+│           │   ├── [CPP ] fallingmugs.cpp
+│           │   └── [CPP ] thanosthehero.cpp
+│           └── [DIR] uva [FILES: 1]
+│               └── [CPP ] 616 - Coconuts, Revisited.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
     ├── [CPP ] 02.cpp
@@ -582,8 +584,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 182
- >> UVA:    171
- >> TOTAL:  353
+ >> UVA:    172
+ >> TOTAL:  354
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
