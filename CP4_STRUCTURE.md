@@ -560,7 +560,9 @@ CP4
 │       │   │   ├── [CPP ] theeasiestproblemisthisosne.cpp
 │       │   │   ├── [CPP ] trollhunt.cpp
 │       │   │   └── [CPP ] videospeedup.cpp
-│       │   └── [DIR] uva [FILES: 1]
+│       │   └── [DIR] uva [FILES: 3]
+│       │       ├── [FILE] 10346 - Peter's Smokes.bin
+│       │       ├── [CPP ] 10346 - Peter's Smokes.cpp
 │       │       └── [CPP ] 1225 - Digit Counting.cpp
 │       └── [DIR] i_mathematical_simulation_hard
 │           └── [DIR] kattis [FILES: 3]
@@ -580,8 +582,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 182
- >> UVA:    169
- >> TOTAL:  351
+ >> UVA:    171
+ >> TOTAL:  353
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
