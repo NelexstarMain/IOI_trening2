@@ -569,9 +569,10 @@ CP4
 │           │   ├── [CPP ] crackingrsa.cpp
 │           │   ├── [CPP ] fallingmugs.cpp
 │           │   └── [CPP ] thanosthehero.cpp
-│           └── [DIR] uva [FILES: 3]
-│               ├── [CPP ] 11130 - Billiard bounces.cpp
+│           └── [DIR] uva [FILES: 4]
 │               ├── [CPP ] 11130 - Billiard bouncesn.cpp
+│               ├── [FILE] 11254 - Consecutive Integers.bin
+│               ├── [CPP ] 11254 - Consecutive Integers.cpp
 │               └── [CPP ] 616 - Coconuts, Revisited.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
@@ -586,8 +587,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 182
- >> UVA:    174
- >> TOTAL:  356
+ >> UVA:    175
+ >> TOTAL:  357
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]

@@ -28,12 +28,19 @@ void fast_io() {
 }
 
 void solve() {
-    int a, b, v, A, s;
-    while (cin >> a >> b >> v >> A >> s && a>0) {
-        double S=(0.5*v*s);
-        double Sx=S*cos(A), Sy=S*sin(A);
-        int X=(Sx*1.0/a+0.5), Y=(Sy*1.0/b+0.5);
-        cout << X << " " << Y << "\n";
+    int N; 
+    while (cin >> N && N>=0) {
+        int D=sqrt(2*N)+1;
+        for (int r=D; r>0; --r) {
+            if ((2*N)%(r)==0) {
+                int s=2*N/r;
+                if ((s+r-1)%2==0 && (s-r+1)%2==0 && (s-r+1)>0) {
+                    //8=8+...+8
+                    cout << N << " = " << (s-r+1)/2 << " + ... + " << (s+r-1)/2 << "\n";
+                    break;
+                }
+            }
+        }
     }
 }
 
