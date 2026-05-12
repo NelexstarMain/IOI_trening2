@@ -20,7 +20,7 @@ using pll = pair<ll, ll>;
 
 const int INF = 1e9 + 7;
 const ll LINF = 1e18 + 7;
-const int MOD = 1e9 + 7;
+const int MOD = 100000007;
 
 void fast_io() {
     ios_base::sync_with_stdio(false);
@@ -28,20 +28,24 @@ void fast_io() {
 }
 
 void solve() {
-    int N; 
-    while (cin >> N && N>=0) {
-        int D=sqrt(2*N)+1;
-        for (int r=D; r>0; --r) {
-            if ((2*N)%(r)==0) {
-                int s=2*N/r;
-                if ((s+r-1)%2==0 && (s-r+1)%2==0 && (s-r+1)>0) {
-                    //8=8+...+8
-                    cout << N << " = " << (s-r+1)/2 << " + ... + " << (s+r-1)/2 << "\n";
-                    break;
-                }
+    ll N; 
+    while (cin >> N && N > 0) {
+        ll X=(-7+sqrt((49+24*N))+0.0000001)/12;
+        // cout << X << "\n";
+        vector<ll> V;
+        for (ll i=1; i<=X; i++) {
+            if ((ll)(N-6*i*i)%(7*i)==0) {
+                ll A=(N-6*i*i)/(7*i);
+                V.PB(A);
             }
-        }   
-    }
+        }
+        sort(ALL(V), [](ll &A, ll &B){
+            return A>B;
+        });
+        if (SIZE(V)>0) for (ll x: V) cout << "Possible Missing Soldiers = " << ((2%MOD)*(x%MOD)*(x%MOD))%MOD << "\n";
+        else cout << "No Solution Possible\n";
+        cout << "\n";
+    } 
 }
 
 int main() {
