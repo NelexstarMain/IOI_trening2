@@ -1,0 +1,49 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pii = pair<int, int>;
+using pll = pair<ll, ll>;
+
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+#define REP(i, a, b) for(int i = a; i <= b; ++i)
+#define FWD(i, a, b) for(int i = a; i < b; ++i)
+#define REV(i, a, b) for(int i = a; i >= b; --i)
+#define ALL(a) (a).begin(), (a).end()
+#define SIZE(a) (int)((a).size())
+
+const int INF = 1e9 + 7;
+const ll LINF = 1e18 + 7;
+const int MOD = 1e9 + 7;
+
+void fast_io() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+}
+
+void solve() {
+    int a, b, v, A, s;
+    while (cin >> a >> b >> v >> A >> s && a>0) {
+        double S=(0.5*v*s);
+        // cout << A << "\n";
+        double alfa=(A*3.14159)/180;
+        // cout << alfa << "\n";
+        double Sx=S*cos(alfa), Sy=S*sin(alfa);
+        // cout << Sx << " " << Sy << "\n";
+        int X=(Sx*1.0/a+0.5), Y=(Sy*1.0/b+0.5);
+        cout << X << " " << Y << "\n";
+    }
+}
+
+int main() {
+    fast_io();
+    solve();
+    return 0;
+}
