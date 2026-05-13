@@ -564,17 +564,20 @@ CP4
 │       │       ├── [FILE] 10346 - Peter's Smokes.bin
 │       │       ├── [CPP ] 10346 - Peter's Smokes.cpp
 │       │       └── [CPP ] 1225 - Digit Counting.cpp
-│       └── [DIR] i_mathematical_simulation_hard
-│           ├── [DIR] kattis [FILES: 3]
-│           │   ├── [CPP ] crackingrsa.cpp
-│           │   ├── [CPP ] fallingmugs.cpp
-│           │   └── [CPP ] thanosthehero.cpp
-│           └── [DIR] uva [FILES: 5]
-│               ├── [CPP ] 11130 - Billiard bouncesn.cpp
-│               ├── [FILE] 11254 - Consecutive Integers.bin
-│               ├── [CPP ] 11254 - Consecutive Integers.cpp
-│               ├── [CPP ] 11490 - Just Another Problem.cpp
-│               └── [CPP ] 616 - Coconuts, Revisited.cpp
+│       ├── [DIR] i_mathematical_simulation_hard
+│       │   ├── [DIR] kattis [FILES: 3]
+│       │   │   ├── [CPP ] crackingrsa.cpp
+│       │   │   ├── [CPP ] fallingmugs.cpp
+│       │   │   └── [CPP ] thanosthehero.cpp
+│       │   └── [DIR] uva [FILES: 5]
+│       │       ├── [CPP ] 11130 - Billiard bouncesn.cpp
+│       │       ├── [FILE] 11254 - Consecutive Integers.bin
+│       │       ├── [CPP ] 11254 - Consecutive Integers.cpp
+│       │       ├── [CPP ] 11490 - Just Another Problem.cpp
+│       │       └── [CPP ] 616 - Coconuts, Revisited.cpp
+│       └── [DIR] j_jesephus
+│           └── [DIR] kattis [FILES: 1]
+│               └── [CPP ] eenymeeny.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
     ├── [CPP ] 02.cpp
@@ -587,9 +590,9 @@ CP4
 
  -------------------------------------------
  >> DATABASE SUMMARY
- >> KATTIS: 182
+ >> KATTIS: 183
  >> UVA:    176
- >> TOTAL:  358
+ >> TOTAL:  359
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
