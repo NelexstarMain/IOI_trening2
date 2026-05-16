@@ -576,10 +576,13 @@ CP4
 │       │       ├── [CPP ] 11490 - Just Another Problem.cpp
 │       │       └── [CPP ] 616 - Coconuts, Revisited.cpp
 │       └── [DIR] j_jesephus
-│           └── [DIR] kattis [FILES: 3]
-│               ├── [CPP ] eenymeeny.cpp
-│               ├── [CPP ] musicalchairs.cpp
-│               └── [CPP ] toys.cpp
+│           ├── [DIR] kattis [FILES: 3]
+│           │   ├── [CPP ] eenymeeny.cpp
+│           │   ├── [CPP ] musicalchairs.cpp
+│           │   └── [CPP ] toys.cpp
+│           └── [DIR] uva [FILES: 2]
+│               ├── [FILE] 151 - Power Crisis.bin
+│               └── [CPP ] 151 - Power Crisis.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
     ├── [CPP ] 02.cpp
@@ -593,8 +596,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 185
- >> UVA:    176
- >> TOTAL:  361
+ >> UVA:    178
+ >> TOTAL:  363
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
