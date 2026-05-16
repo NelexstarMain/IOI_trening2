@@ -581,8 +581,8 @@ CP4
 │           │   ├── [CPP ] musicalchairs.cpp
 │           │   └── [CPP ] toys.cpp
 │           └── [DIR] uva [FILES: 3]
-│               ├── [FILE] 11351 - Last Man Standing.bin
 │               ├── [CPP ] 11351 - Last Man Standing.cpp
+│               ├── [CPP ] 1176 - A Benevolent Josephus.cpp
 │               └── [CPP ] 151 - Power Crisis.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
