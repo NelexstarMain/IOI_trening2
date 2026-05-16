@@ -580,8 +580,9 @@ CP4
 │           │   ├── [CPP ] eenymeeny.cpp
 │           │   ├── [CPP ] musicalchairs.cpp
 │           │   └── [CPP ] toys.cpp
-│           └── [DIR] uva [FILES: 2]
-│               ├── [FILE] 151 - Power Crisis.bin
+│           └── [DIR] uva [FILES: 3]
+│               ├── [FILE] 11351 - Last Man Standing.bin
+│               ├── [CPP ] 11351 - Last Man Standing.cpp
 │               └── [CPP ] 151 - Power Crisis.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
@@ -596,8 +597,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 185
- >> UVA:    178
- >> TOTAL:  363
+ >> UVA:    179
+ >> TOTAL:  364
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
