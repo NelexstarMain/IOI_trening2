@@ -576,8 +576,9 @@ CP4
 │       │       ├── [CPP ] 11490 - Just Another Problem.cpp
 │       │       └── [CPP ] 616 - Coconuts, Revisited.cpp
 │       └── [DIR] j_jesephus
-│           └── [DIR] kattis [FILES: 2]
+│           └── [DIR] kattis [FILES: 3]
 │               ├── [CPP ] eenymeeny.cpp
+│               ├── [CPP ] musicalchairs.cpp
 │               └── [CPP ] toys.cpp
 └── [DIR] Exercises
     ├── [CPP ] 01.cpp
@@ -591,9 +592,9 @@ CP4
 
  -------------------------------------------
  >> DATABASE SUMMARY
- >> KATTIS: 184
+ >> KATTIS: 185
  >> UVA:    176
- >> TOTAL:  360
+ >> TOTAL:  361
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
