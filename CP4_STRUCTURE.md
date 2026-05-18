@@ -561,9 +561,9 @@ CP4
 │       │   │   ├── [CPP ] trollhunt.cpp
 │       │   │   └── [CPP ] videospeedup.cpp
 │       │   └── [DIR] uva [FILES: 3]
-│       │       ├── [FILE] 10346 - Peter's Smokes.bin
 │       │       ├── [CPP ] 10346 - Peter's Smokes.cpp
-│       │       └── [CPP ] 1225 - Digit Counting.cpp
+│       │       ├── [CPP ] 1225 - Digit Counting.cpp
+│       │       └── [CPP ] 382 - Perfection.cpp
 │       ├── [DIR] i_mathematical_simulation_hard
 │       │   ├── [DIR] kattis [FILES: 3]
 │       │   │   ├── [CPP ] crackingrsa.cpp
@@ -580,8 +580,7 @@ CP4
 │           │   ├── [CPP ] eenymeeny.cpp
 │           │   ├── [CPP ] musicalchairs.cpp
 │           │   └── [CPP ] toys.cpp
-│           └── [DIR] uva [FILES: 5]
-│               ├── [FILE] 10774 - Repeated Josephus.bin
+│           └── [DIR] uva [FILES: 4]
 │               ├── [CPP ] 10774 - Repeated Josephus.cpp
 │               ├── [CPP ] 11351 - Last Man Standing.cpp
 │               ├── [CPP ] 1176 - A Benevolent Josephus.cpp
@@ -599,8 +598,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 185
- >> UVA:    181
- >> TOTAL:  366
+ >> UVA:    180
+ >> TOTAL:  365
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
