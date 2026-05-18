@@ -580,7 +580,9 @@ CP4
 │           │   ├── [CPP ] eenymeeny.cpp
 │           │   ├── [CPP ] musicalchairs.cpp
 │           │   └── [CPP ] toys.cpp
-│           └── [DIR] uva [FILES: 3]
+│           └── [DIR] uva [FILES: 5]
+│               ├── [FILE] 10774 - Repeated Josephus.bin
+│               ├── [CPP ] 10774 - Repeated Josephus.cpp
 │               ├── [CPP ] 11351 - Last Man Standing.cpp
 │               ├── [CPP ] 1176 - A Benevolent Josephus.cpp
 │               └── [CPP ] 151 - Power Crisis.cpp
@@ -597,8 +599,8 @@ CP4
  -------------------------------------------
  >> DATABASE SUMMARY
  >> KATTIS: 185
- >> UVA:    179
- >> TOTAL:  364
+ >> UVA:    181
+ >> TOTAL:  366
  >> STATUS: ALL_SYSTEMS_GO
  -------------------------------------------
  [ END OF TRANSMISSION ]
